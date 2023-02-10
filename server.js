@@ -68,8 +68,19 @@ app.get("/getevents", async (req, res) => {
 app.patch('/events/:id', async (req, res) => {
     const { id } = req.params;
     const { signedUp } = req.body;
-    const event = await Event.findOneAndUpdate({ _id: id }, { $inc: { signedUp } });
-    res.json(event);
+    const events = await Event.findOneAndUpdate({ _id: id }, { $inc: { signedUp } });
+    const transformedEvents = events.map(event => {
+        const date = new Date(event.date);
+        return {
+          ...event._doc,
+          day: date.getDate(),
+          month: date.getMonth(),
+          year: date.getFullYear(),
+          hour: date.getHours(),
+          minutes: date.getMinutes(),
+        };
+      });
+      res.send(transformedEvents);
   });
 
 // catch 404 and forward to error handler
