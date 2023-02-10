@@ -9,7 +9,7 @@ export const EventsPage = () => {
       .then(res => res.json())
       .then(events => setEvents(events))
       .catch(err => console.error(err));
-  }, []);
+  });
 
   const handleSignUp = id => {
     const eventToUpdate = events.find(event => event._id === id);
