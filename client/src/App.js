@@ -2,11 +2,12 @@ import React from 'react';
 import axios from 'axios';
 import "./index.css";
 import './App.css';
+import { EventsPage } from './components/EventsPage';
 
 function App() {
   return (
-    <div className="Heading">
-      <h1>Sign Up</h1>
+    <div className="App">
+      {/* <h1>Sign Up</h1>
       <p>Please fill in the below information</p>
       
       <div class="masonry-grid">
@@ -22,8 +23,9 @@ function App() {
       <input type="checkbox" id="accept" name="Remember" value="yes" />  
       
       <label for="Remember"> Remember Me </label>
-      </div>
+      </div> */}
 
+      <EventsPage />
       
     </div>
    
