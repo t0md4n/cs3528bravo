@@ -49,38 +49,27 @@ app.get("/getevents", async (req, res) => {
 
     const events = await Event.find({});
 
-    const transformedEvents = events.map(event => {
-        const date = new Date(event.date);
-        return {
-          ...event._doc,
-          day: date.getDate(),
-          month: date.getMonth(),
-          year: date.getFullYear(),
-          hour: date.getHours(),
-          minutes: date.getMinutes(),
-        };
-      });
-      res.send(transformedEvents);
+    // const transformedEvents = events.map(event => {
+    //     const date = new Date(event.date);
+    //     return {
+    //       ...event._doc,
+    //       day: date.getDate(),
+    //       month: date.getMonth(),
+    //       year: date.getFullYear(),
+    //       hour: date.getHours(),
+    //       minutes: date.getMinutes(),
+    //     };
+    //   });
+      res.send(events);
 
-    res.send(events);
 });
 
 app.patch('/events/:id', async (req, res) => {
     const { id } = req.params;
-    const { signedUp } = req.body;
-    const events = await Event.findOneAndUpdate({ _id: id }, { $inc: { signedUp } });
-    const transformedEvents = events.map(event => {
-        const date = new Date(event.date);
-        return {
-          ...event._doc,
-          day: date.getDate(),
-          month: date.getMonth(),
-          year: date.getFullYear(),
-          hour: date.getHours(),
-          minutes: date.getMinutes(),
-        };
-      });
-      res.send(transformedEvents);
+    // const { signedUp } = req.body;
+    const event = await Event.findOneAndUpdate({ _id: id }, { $inc: { signedUp: 1 } });
+
+    res.send(event);
   });
 
 // catch 404 and forward to error handler
