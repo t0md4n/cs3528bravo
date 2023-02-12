@@ -1,8 +1,16 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import "./index.css";
 import './App.css';
-import { EventsPage } from './components/EventsPage';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import { Events } from './components/Events';
+import { Login } from './components/Login';
+import { Home } from './components/Home';
+import { Navbar } from './components/Navbar';
 
 function App() {
   return (
@@ -25,7 +33,16 @@ function App() {
       <label for="Remember"> Remember Me </label>
       </div> */}
 
-      <EventsPage />
+      <Router>
+        <Navbar />
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/events' component={Events} />
+            <Route path='/login' component={Login} />
+          </Switch>
+
+      </Router>
+
       
     </div>
    
