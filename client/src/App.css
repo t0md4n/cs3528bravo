@@ -9,6 +9,9 @@
 body{
   background-color: #cccccc;
   background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .masonry-grid {

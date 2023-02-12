@@ -33,20 +33,18 @@ app.use(express.static('./client/build'));
 app.use('/api/data', require('./routes/new-index.js'))
 
 const url = 'mongodb+srv://testuser:codio@cluster0.chewq69.mongodb.net/cs3528?retryWrites=true&w=majority';
-
+mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error(err));
 
 app.get("/", (req, res) => { //our GET route needs to point to the index.html in our build
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));  });
 
 
 app.get("/getevents", async (req, res) => { 
-    mongoose.connect(url, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error(err));
-
     const events = await Event.find({});
 
     // const transformedEvents = events.map(event => {

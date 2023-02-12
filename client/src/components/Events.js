@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './eventsPage.css';
+import './css/eventsPage.css';
 
-export const EventsPage = () => {
+export const Events = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
