@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './css/eventsPage.css';
 
+// https://cs3528.azurewebsites.net/getevents
+// https://cs3528.azurewebsites.net/events/${id}
+// http://localhost:3001/getevents
+
 export const Events = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch('https://cs3528.azurewebsites.net/getevents')
+    fetch('http://localhost:3001/getevents')
       .then(res => res.json())
       .then(events => setEvents(events))
       .catch(err => console.error(err));
@@ -14,7 +18,7 @@ export const Events = () => {
   const handleSignUp = id => {
     // const eventToUpdate = events.find(event => event._id === id);
   
-    fetch(`https://cs3528.azurewebsites.net/events/${id}`, {
+    fetch(`http://localhost:3001/events/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ signedUp: events.find(event => event._id === id)}),
