@@ -1,12 +1,21 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import "./index.css";
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import { Events } from './components/Events';
+import { Login } from './components/Login';
+import { Home } from './components/Home';
+import { Navbar } from './components/Navbar';
 
 function App() {
   return (
-    <div className="Heading">
-      <h1>Sign Up</h1>
+    <div className="App">
+      {/* <h1>Sign Up</h1>
       <p>Please fill in the below information</p>
       
       <div class="masonry-grid">
@@ -22,7 +31,17 @@ function App() {
       <input type="checkbox" id="accept" name="Remember" value="yes" />  
       
       <label for="Remember"> Remember Me </label>
-      </div>
+      </div> */}
+
+      <Router>
+        <Navbar />
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/events' component={Events} />
+            <Route path='/login' component={Login} />
+          </Switch>
+
+      </Router>
 
       
     </div>

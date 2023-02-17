@@ -3,8 +3,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
+const Event = require('./models/event');
+const cors = require('cors');
 
 var app = express();
+app.use(cors());
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -21,8 +32,42 @@ app.use(express.static('./client/build'));
 
 app.use('/api/data', require('./routes/new-index.js'))
 
-app.get("*", (req, res) => { //our GET route needs to point to the index.html in our build
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+const url = 'mongodb+srv://testuser:codio@cluster0.chewq69.mongodb.net/cs3528?retryWrites=true&w=majority';
+mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error(err));
+
+app.get("/", (req, res) => { //our GET route needs to point to the index.html in our build
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));  });
+
+
+app.get("/getevents", async (req, res) => { 
+    const events = await Event.find({});
+
+    // const transformedEvents = events.map(event => {
+    //     const date = new Date(event.date);
+    //     return {
+    //       ...event._doc,
+    //       day: date.getDate(),
+    //       month: date.getMonth(),
+    //       year: date.getFullYear(),
+    //       hour: date.getHours(),
+    //       minutes: date.getMinutes(),
+    //     };
+    //   });
+      res.send(events);
+
+});
+
+app.patch('/events/:id', async (req, res) => {
+    const { id } = req.params;
+    // const { signedUp } = req.body;
+    const event = await Event.findOneAndUpdate({ _id: id }, { $inc: { signedUp: 1 } });
+
+    res.send(event);
   });
 
 // catch 404 and forward to error handler
