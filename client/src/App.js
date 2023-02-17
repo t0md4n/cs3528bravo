@@ -10,6 +10,8 @@ import {
 import { Events } from './components/Events';
 import { Login } from './components/Login';
 import { Home } from './components/Home';
+import { CreateEvent } from './components/Createevent';
+
 import { Navbar } from './components/Navbar';
 
 function App() {
@@ -38,6 +40,7 @@ function App() {
           <Switch>
             <Route path='/' exact component={Home} />
             <Route path='/events' component={Events} />
+            <Route path='/createevent' component={CreateEvent} />
             <Route path='/login' component={Login} />
           </Switch>
 
