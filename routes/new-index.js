@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
 		var dbo = db.db("Cluster34479");
 		dbo.collection("collection1").find({}).toArray(function(err, result) {
 			if (err) throw err;
-			console.log('Mongo data coming in hot')
+			console.log('Mongo data coming')
     		console.log(result);
     		res.json(result)
     		db.close();

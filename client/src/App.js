@@ -11,6 +11,7 @@ import { Events } from './components/Events';
 import { Login } from './components/Login';
 import { Home } from './components/Home';
 import { Navbar } from './components/Navbar';
+//import { signUp } from './components/SignUp';
 
 function App() {
   return (
