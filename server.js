@@ -8,6 +8,7 @@ const Event = require('./models/event');
 const cors = require('cors');
 
 var app = express();
+app.use(express.json());
 app.use(cors());
 
 app.use((req, res, next) => {
