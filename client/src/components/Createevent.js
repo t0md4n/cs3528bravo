@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './css/createEvent.css';
 
-
+// https://cs3528.azurewebsites.net/createevent
 export const CreateEvent = () => {
     // Set up state to hold the form data
     const [sportType, setSportType] = useState("");
@@ -22,9 +22,10 @@ export const CreateEvent = () => {
                 sportType: sportType,
                 address: address,
                 city: city,
-                date: date,
-                time: formattedDate,
+                date: formattedDate,
+                time: time,
                 maxParticipants: maxParticipants,
+                signedUp: 1,
                 creator: "63f3500cb72c98bd43764ac4",
                 participants: ["63f3500cb72c98bd43764ac4"]
             }),
@@ -46,9 +47,9 @@ export const CreateEvent = () => {
                 onChange={(event) => setSportType(event.target.value)}
             >
                 <option value="">Select Sport</option>
-                <option value="football">Football</option>
-                <option value="tennis">Tennis</option>
-                <option value="basketball">Basketball</option>
+                <option value="Football">Football</option>
+                <option value="Tennis">Tennis</option>
+                <option value="Basketball">Basketball</option>
             </select>
 
             <input 

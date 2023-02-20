@@ -38,12 +38,13 @@ export const Events = () => {
       <ul>
         {events.map(event => (
           <li key={event._id} className="event">
-            <h2>Type: {event.type}</h2>
-            <h2>Location: {event.location}</h2>
-            <p>Limit: {event.max}</p>
-            <p>Signed up: {event.signedUp}</p>
+            <h2>Type: {event.sportType}</h2>
+            <h2>City: {event.city}</h2>
+            <p>Address: {event.address}</p>
             <p>Date: {event.date}</p>
-
+            <p>Time: {event.time}</p>
+            <p>Signed up: {event.signedUp}</p>
+            <p>Limit: {event.maxParticipants}</p>
             <button id="event-button" className="event-button" onClick={() => handleSignUp(event._id)}>Sign Up</button>
           </li>
         ))}
