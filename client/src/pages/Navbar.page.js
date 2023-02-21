@@ -10,13 +10,13 @@ import { Link } from "react-router-dom";
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/events.page">Events</Link>
+            <Link to="/events">Events</Link>
           </li>
           <li>
-            <Link to="/login.page">Login</Link>
+            <Link to="/login">Login</Link>
           </li>
           <li>
-            <Link to="/signup.page">Sign Up</Link>
+            <Link to="/signup">Sign Up</Link>
           </li>
         </ul>
       </nav>
