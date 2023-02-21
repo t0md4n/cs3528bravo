@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './css/eventsPage.css';
+import '../components/css/eventsPage.css';
 
 // https://cs3528.azurewebsites.net/getevents
 // https://cs3528.azurewebsites.net/events/${id}
 // http://localhost:3001/getevents
 
-export const Events = () => {
+ const Events = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -51,4 +51,6 @@ export const Events = () => {
       </ul>
     </div>
   );
-};
+ };
+
+export default Events;

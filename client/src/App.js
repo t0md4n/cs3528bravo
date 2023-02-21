@@ -1,55 +1,44 @@
 import React from 'react';
+import { UserProvider } from "./contexts/user.context";
+import { BrowserRouter } from 'react-router-dom';
+
 // import axios from 'axios';
 import "./index.css";
 import './App.css';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import { Events } from './components/Events';
-import { Login } from './components/Login';
-import { Home } from './components/Home';
-import { CreateEvent } from './components/Createevent';
+  Route,
+  Routes
 
-import { Navbar } from './components/Navbar';
+} from "react-router-dom";
+
+import Navbar from "./pages/Navbar.page";
+import Home from "./pages/Home.page";
+import Login from "./pages/Login.page";
+import PrivateRoute from "./pages/PrivateRoute.page";
+import Signup from "./pages/Signup.page";
+import Events from "./pages/Events.page";
 
 function App() {
   return (
-    <div className="App">
-      {/* <h1>Sign Up</h1>
-      <p>Please fill in the below information</p>
-      
-      <div class="masonry-grid">
-      <input type="text" placeholder="Enter Username" name="Username" required></input>
-      <div class="masonry-grid__item">...</div>
-      
-      <input type="text" placeholder="Enter Password" name="Password" required></input>
-      <div class="masonry-grid__item">...</div>
-      
-      <input type="text" placeholder="Repeat Password" name="Password" required></input>
-      <div class="masonry-grid__item">...</div>
-      
-      <input type="checkbox" id="accept" name="Remember" value="yes" />  
-      
-      <label for="Remember"> Remember Me </label>
-      </div> */}
-
-      <Router>
-        <Navbar />
-          <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/events' component={Events} />
-            <Route path='/createevent' component={CreateEvent} />
-            <Route path='/login' component={Login} />
-          </Switch>
-
-      </Router>
-
-      
-    </div>
-   
+    <BrowserRouter>
+      {/* We are wrapping our whole app with UserProvider so that */}
+      {/* our user is accessible through out the app from any page*/}
+      < Navbar />
+      <UserProvider>
+        <Routes>
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/events" element={<Events/> } />
+          {/* We are protecting our Home Page from unauthenticated */}
+          {/* users by wrapping it with PrivateRoute here. */}
+          <Route element={<PrivateRoute />}>
+            <Route exact path="/" element={<Home />} />
+            </Route>
+        </Routes>
+      </UserProvider>
+    </BrowserRouter>
   );
-}
-
+ }
+ 
 export default App;

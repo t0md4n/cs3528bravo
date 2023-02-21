@@ -1,8 +1,8 @@
-import './css/navbar.css'
+import '../components/css/navbar.css'
 import React from 'react';
 import { Link } from "react-router-dom";
 
-export const Navbar = () => {
+ const Navbar = () => {
   return (
       <nav>
         <ul>
@@ -18,7 +18,12 @@ export const Navbar = () => {
           <li>
             <Link to="/login">Login</Link>
           </li>
+          <li>
+            <Link to="/signup">Sign Up</Link>
+          </li>
         </ul>
       </nav>
     );
-  }
+ }
+  
+export default Navbar;
