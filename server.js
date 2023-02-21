@@ -8,6 +8,7 @@ const Event = require('./models/event');
 const cors = require('cors');
 
 var app = express();
+app.use(express.json());
 app.use(cors());
 
 app.use((req, res, next) => {
@@ -32,7 +33,8 @@ app.use(express.static('./client/build'));
 
 app.use('/api/data', require('./routes/new-index.js'))
 
-const url = 'mongodb+srv://Cluster34479:UWFtRFtGX090@cluster34479.1jsddom.mongodb.net/test';
+const url = 'mongodb+srv://Cluster34479:UWFtRFtGX090@cluster34479.1jsddom.mongodb.net/cs3528';
+
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -41,7 +43,20 @@ mongoose.connect(url, {
 .catch(err => console.error(err));
 
 app.get("/", (req, res) => { //our GET route needs to point to the index.html in our build
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));  });
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));  
+});
+
+app.get("/login", (req, res) => { //our GET route needs to point to the index.html in our build
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));  
+});
+
+app.get("/events", (req, res) => { //our GET route needs to point to the index.html in our build
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));  
+});
+app.get("/createevent", (req, res) => { //our GET route needs to point to the index.html in our build
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));  
+});
+
 
 
 app.get("/getevents", async (req, res) => { 
@@ -68,7 +83,17 @@ app.patch('/events/:id', async (req, res) => {
     const event = await Event.findOneAndUpdate({ _id: id }, { $inc: { signedUp: 1 } });
 
     res.send(event);
-  });
+});
+
+app.post('/createevent', (req, res) => {
+    const eventData = req.body;
+    const event = new Event(eventData);
+    event.save()
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send('Error creating event');
+    });
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

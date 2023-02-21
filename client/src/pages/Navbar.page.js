@@ -13,6 +13,9 @@ import { Link } from "react-router-dom";
             <Link to="/events">Events</Link>
           </li>
           <li>
+            <Link to="/createevent">Create</Link>
+          </li>
+          <li>
             <Link to="/login">Login</Link>
           </li>
           <li>
