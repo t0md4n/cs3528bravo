@@ -18,6 +18,8 @@ import Login from "./pages/Login.page";
 import PrivateRoute from "./pages/PrivateRoute.page";
 import Signup from "./pages/Signup.page";
 import Events from "./pages/Events.page";
+import CreateEvent from "./pages/CreateEvent.page";
+
 
 function App() {
   return (
@@ -29,7 +31,8 @@ function App() {
         <Routes>
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
-          <Route exact path="/events" element={<Events/> } />
+          <Route exact path="/events" element={<Events />} />
+          <Route exact path="/createevent" element={<CreateEvent/> } />
           {/* We are protecting our Home Page from unauthenticated */}
           {/* users by wrapping it with PrivateRoute here. */}
           <Route element={<PrivateRoute />}>
