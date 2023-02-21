@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import './css/createEvent.css';
+import React, { useState } from 'react';
+import '../components/css/createEvent.css';
 
 // https://cs3528.azurewebsites.net/createevent
-export const CreateEvent = () => {
+ const CreateEvent = () => {
     // Set up state to hold the form data
     const [sportType, setSportType] = useState("");
     const [address, setAddress] = useState("");
@@ -119,4 +119,6 @@ export const CreateEvent = () => {
     </form>
 
     )
-};
+ };
+
+ export default CreateEvent;
