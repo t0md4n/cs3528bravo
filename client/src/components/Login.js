@@ -4,9 +4,7 @@ export const Login = () => {
 
   return (
     <div className="Heading">
-      <h1>Log in</h1>
-      <p>Please enter your log in details below</p>
-      
+      <h1>Login</h1>      
       <div class="masonry-grid">
         <input type="text" placeholder="Enter Username" name="Username" required></input>
         <div class="masonry-grid__item">...</div>
@@ -23,3 +21,6 @@ export const Login = () => {
     </div>
   );
 }
+
+
+
