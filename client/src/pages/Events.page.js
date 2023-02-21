@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './css/eventsPage.css';
+import '../components/css/eventsPage.css';
 
-export const Events = () => {
+
+ const Events = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -47,3 +48,6 @@ export const Events = () => {
     </div>
   );
 };
+
+
+export default Events;

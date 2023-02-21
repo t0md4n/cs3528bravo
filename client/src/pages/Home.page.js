@@ -22,7 +22,7 @@ export default function Home() {
  
  return (
    <>
-     <h1>Welcome</h1>
+     <h1>Welcome you are now logged in</h1>
      <Button variant="contained" onClick={logOut}>Logout</Button>
    </>
  )

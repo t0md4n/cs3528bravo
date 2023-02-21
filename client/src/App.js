@@ -1,45 +1,44 @@
 import React from 'react';
 import { UserProvider } from "./contexts/user.context";
+import { BrowserRouter } from 'react-router-dom';
+
 // import axios from 'axios';
 import "./index.css";
 import './App.css';
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
   Routes
 
 } from "react-router-dom";
-import {BrowserRouter} from 'react-router-dom';
 
-
-import { Events } from './components/Events';
-import { Navbar } from './components/Navbar';
+import Navbar from "./pages/Navbar.page";
 import Home from "./pages/Home.page";
 import Login from "./pages/Login.page";
 import PrivateRoute from "./pages/PrivateRoute.page";
 import Signup from "./pages/Signup.page";
+import Events from "./pages/Events.page";
 
 function App() {
   return (
     <BrowserRouter>
       {/* We are wrapping our whole app with UserProvider so that */}
       {/* our user is accessible through out the app from any page*/}
+      < Navbar />
       <UserProvider>
         <Routes>
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
-          <Route path='/events' component={Events} />
+          <Route exact path="/events" element={<Events/> } />
           {/* We are protecting our Home Page from unauthenticated */}
           {/* users by wrapping it with PrivateRoute here. */}
           <Route element={<PrivateRoute />}>
             <Route exact path="/" element={<Home />} />
-          </Route>
+            </Route>
         </Routes>
       </UserProvider>
     </BrowserRouter>
   );
  }
-
  
 export default App;
