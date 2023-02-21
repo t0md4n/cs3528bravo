@@ -9,6 +9,11 @@
     bottom: 0;
     left: 15%;
 }
+.createevent button{
+    max-width: 100px;
+    position: relative;
+    left: 20px;
+}
 
 
 

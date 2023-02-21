@@ -4,21 +4,38 @@ const eventsSchema = new mongoose.Schema({
     // id: {
     //     type: String
     // },
-    type: {
+    sportType: {
         type: String,
-        set: value => value.toLowerCase().replace(/(^|\s)\S/g, l => l.toUpperCase())
+        required: true
     },
-    max: {
-        type: Number
+    address: {
+        type: String,
+        required: true
     },
-    signedUp: {
-        type: Number
+    city: {
+        type: String,
+        required: true
     },
     date: {
-        type: Date, default: Date.now
+        type: String, 
+        required: true
     },
+    time: {
+        type: String,
+        required: true
+    },
+    maxParticipants: {
+        type: Number,
+        required: true
+    },
+    signedUp: {
+        type: Number,
+        required: true
+    },
+    participants: [ { type: mongoose.Schema.Types.ObjectId, ref: 'User' } ],
+    creator: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 
-})
+}, { timestamps: true })
 
 const Event = mongoose.model('Event', eventsSchema);
 
