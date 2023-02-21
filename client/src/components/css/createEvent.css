@@ -1,0 +1,19 @@
+.createevent input, select {
+    display: block;
+    margin: 20px;
+}
+.createevent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 15%;
+}
+.createevent button{
+    max-width: 100px;
+    position: relative;
+    left: 20px;
+}
+
+
+
