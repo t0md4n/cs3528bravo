@@ -33,7 +33,8 @@ app.use(express.static('./client/build'));
 
 app.use('/api/data', require('./routes/new-index.js'))
 
-const url = 'mongodb+srv://testuser:codio@cluster0.chewq69.mongodb.net/cs3528?retryWrites=true&w=majority';
+const url = 'mongodb+srv://Cluster34479:UWFtRFtGX090@cluster34479.1jsddom.mongodb.net/cs3528';
+
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -89,8 +90,8 @@ app.post('/createevent', (req, res) => {
     const event = new Event(eventData);
     event.save()
     .catch((error) => {
-        console.error(error);
-        res.status(500).send('Error creating event');
+      console.error(error);
+      res.status(500).send('Error creating event');
     });
 });
 

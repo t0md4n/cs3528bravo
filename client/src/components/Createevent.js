@@ -12,11 +12,11 @@ export const CreateEvent = () => {
     const [maxParticipants, setMaxParticipants] = useState("");
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         const formattedDate = new Date(date).toLocaleDateString('en-GB');
         // console.log(sportType, address, city, formattedDate, time, maxParticipants);
 
-        fetch('http://localhost:3001/createevent', {
+        fetch('https://cs3528.azurewebsites.net/createevent', {
             method: 'POST',
             body: JSON.stringify({
                 sportType: sportType,
@@ -33,8 +33,6 @@ export const CreateEvent = () => {
                 'Content-type': 'application/json; charset=UTF-8'
             },
         })
-        // .then((response) => response.json())
-        // .then((json) => console.log(json));
     }
 
     return (  
