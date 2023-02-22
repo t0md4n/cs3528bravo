@@ -2,7 +2,7 @@ import { Button, TextField } from "@mui/material";
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/user.context";
-
+import '../components/css/signUp.css';
  
 const Signup = () => {
  const navigate = useNavigate();
@@ -12,7 +12,10 @@ const Signup = () => {
  const { emailPasswordSignup } = useContext(UserContext);
  const [form, setForm] = useState({
    email: "",
-   password: ""
+   password: "",
+   confirmPass: "",
+   age: "",
+   location : "",
  });
  
  // As explained in the Login page.
@@ -20,6 +23,42 @@ const Signup = () => {
    const { name, value } = event.target;
    setForm({ ...form, [name]: value });
  };
+
+ // toggle visibility
+const toggleVis = (x) => {
+  this.type = "text";
+}
+const toggleBack = (x) => {
+  x.type = "password";
+}
+// Special char, uppercase, lowercase etc.
+const passwordVerify = (pass, message) => {
+  let password = pass.value;
+  let pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/;
+  if (password === ""){
+    document.getElementById(message).innerHTML = "";
+  }else if(password.match(pattern) == null){
+    document.getElementById(message).innerHTML = 'Password MUST contain: 1 Uppercase, 1 Lowercase, 1 Special Character, 1 Numeric Character';
+    document.getElementById(message).style.color = 'red';
+  }
+  else{
+    document.getElementById(message).innerHTML = "";
+  }
+}
+// checks for matching passwords
+const matchingPasswords = (passwordOne, passwordTwo, message) =>{
+  let x = document.getElementById(passwordOne);
+  let y = passwordTwo
+  if(y.value === ""){
+    document.getElementById(message).innerHTML = "";
+  }else if (x.value !== y.value){
+    document.getElementById(message).innerHTML = 'passwords not matching';
+    document.getElementById(message).style.color = 'red';
+  }else{
+    document.getElementById(message).innerHTML = 'passwords match';
+    document.getElementById(message).style.color = 'green';
+  }
+}
  
  
  // As explained in the Login page.
@@ -27,11 +66,12 @@ const Signup = () => {
    const redirectTo = location.search.replace("?redirectTo=", "");
    navigate(redirectTo ? redirectTo : "/");
  }
+
  
  // As explained in the Login page.
  const onSubmit = async () => {
    try {
-     const user = await emailPasswordSignup(form.email, form.password);
+     const user = await emailPasswordSignup(form.email, form.password, form.confirmPass, form.age, form.location);
      if (user) {
        redirectNow();
      }
@@ -50,16 +90,42 @@ const Signup = () => {
      value={form.email}
      onInput={onFormInputChange}
      style={{ marginBottom: "1rem" }}
+     required = "true"
    />
    <TextField
      label="Password"
      type="password"
      variant="outlined"
      name="password"
+     id = "password"
      value={form.password}
      onInput={onFormInputChange}
      style={{ marginBottom: "1rem" }}
+     required = "true"
+     onmouseover ={() => this.toggleVis()}
    />
+   <TextField
+     label="Confirm Password"
+     type="password"
+     variant="outlined"
+     name="confirmPass"
+     value={form.confirmPass}
+     onInput={onFormInputChange}
+     style={{ marginBottom: "1rem" }}
+     required = "true"
+   />
+   <TextField
+     type="date"
+     variant="outlined"
+     name="age"
+     value={form.age}
+     onInput={onFormInputChange}
+     style={{ marginBottom: "1rem" }}
+     required = "true"
+   />
+   
+
+   
    <Button variant="contained" color="primary" onClick={onSubmit}>
      Sign up
    </Button>
@@ -67,4 +133,6 @@ const Signup = () => {
  </form>
 }
  
+
+
 export default Signup;
