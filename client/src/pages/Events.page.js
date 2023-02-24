@@ -9,7 +9,7 @@ import '../components/css/eventsPage.css';
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/getevents')
+    fetch('https://cs3528.azurewebsites.net/getevents')
       .then(res => res.json())
       .then(events => setEvents(events))
       .catch(err => console.error(err));
@@ -19,7 +19,7 @@ import '../components/css/eventsPage.css';
     // const eventToUpdate = events.find(event => event._id === id);
     document.getElementById(`event-button-${id}`).disabled = true;
 
-    fetch(`http://localhost:3001/events/${id}`, {
+    fetch(`https://cs3528.azurewebsites.net/events/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ signedUp: events.find(event => event._id === id)}),
