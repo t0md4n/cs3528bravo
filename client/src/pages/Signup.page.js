@@ -8,6 +8,8 @@ const Signup = () => {
  const navigate = useNavigate();
  const location = useLocation();
  const [passwordShown, setPasswordShown] = useState(false);
+ const [password, setPassword] = useState('');
+ const [isValid, setIsValid] = useState(false);
  
  // As explained in the Login page.
  const { emailPasswordSignup } = useContext(UserContext);
@@ -31,24 +33,25 @@ const Signup = () => {
   setPasswordShown(!passwordShown);
 }
 
-
 // Special char, uppercase, lowercase etc.
-const passwordVerify = (pass, message) => {
-  let password = pass.value;
-  let pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/;
-  if (password === ""){
-    document.getElementById(message).innerHTML = "";
-  }else if(password.match(pattern) == null){
-    document.getElementById(message).innerHTML = 'Password MUST contain: 1 Uppercase, 1 Lowercase, 1 Special Character, 1 Numeric Character';
-    document.getElementById(message).style.color = 'red';
+const passwordVerify = (event) => {
+  const password = event.target.value;
+  const pattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/;
+  if(password === ""){
+    setIsValid(true);
+  }
+  else if(password.match(pattern) == null){
+    setIsValid(false);
   }
   else{
-    document.getElementById(message).innerHTML = "";
+    setIsValid(true);
   }
+  setPassword(password);
+  
 }
 
 
-// checks for matching passwords
+// checks for matching passwords- STILL TO DO
 const matchingPasswords = (passwordOne, passwordTwo, message) =>{
   let x = document.getElementById(passwordOne);
   let y = passwordTwo
@@ -104,10 +107,11 @@ const matchingPasswords = (passwordOne, passwordTwo, message) =>{
      value={form.password}
      onInput={onFormInputChange}
      onMouseEnter={toggleVis}
+     onChange = {passwordVerify} 
      style={{ marginBottom: "1rem" }}
      required = "true"
    />
-   <p><span id='messageChars'></span></p>
+   {isValid ? null : <p><span style={{color:'red'}}>Must contain: 1 Uppercase, 1 Lowercase, 1 Special Character</span></p>}
    <TextField
      label="Confirm Password"
      type={passwordShown ? "text" : "password"}

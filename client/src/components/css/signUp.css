@@ -8,3 +8,7 @@ input[type="text"], textarea {
   background-color : #cccccc; 
   
   }
+input[type ="message"], textarea {
+  color : 'red';
+  background-color : #bd6969; 
+  }
