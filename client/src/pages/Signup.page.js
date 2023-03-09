@@ -7,6 +7,7 @@ import '../components/css/signUp.css';
 const Signup = () => {
  const navigate = useNavigate();
  const location = useLocation();
+ const [passwordShown, setPasswordShown] = useState(false);
  
  // As explained in the Login page.
  const { emailPasswordSignup } = useContext(UserContext);
@@ -24,13 +25,13 @@ const Signup = () => {
    setForm({ ...form, [name]: value });
  };
 
- // toggle visibility
-const toggleVis = (x) => {
-  this.type = "text";
+ 
+ // toggle visibility of password
+ const toggleVis = () => {
+  setPasswordShown(!passwordShown);
 }
-const toggleBack = (x) => {
-  x.type = "password";
-}
+
+
 // Special char, uppercase, lowercase etc.
 const passwordVerify = (pass, message) => {
   let password = pass.value;
@@ -45,6 +46,8 @@ const passwordVerify = (pass, message) => {
     document.getElementById(message).innerHTML = "";
   }
 }
+
+
 // checks for matching passwords
 const matchingPasswords = (passwordOne, passwordTwo, message) =>{
   let x = document.getElementById(passwordOne);
@@ -94,19 +97,20 @@ const matchingPasswords = (passwordOne, passwordTwo, message) =>{
    />
    <TextField
      label="Password"
-     type="password"
+     type={passwordShown ? "text" : "password"}
      variant="outlined"
      name="password"
      id = "password"
      value={form.password}
      onInput={onFormInputChange}
+     onMouseEnter={toggleVis}
      style={{ marginBottom: "1rem" }}
      required = "true"
-     onmouseover ={() => this.toggleVis()}
    />
+   <p><span id='messageChars'></span></p>
    <TextField
      label="Confirm Password"
-     type="password"
+     type={passwordShown ? "text" : "password"}
      variant="outlined"
      name="confirmPass"
      value={form.confirmPass}

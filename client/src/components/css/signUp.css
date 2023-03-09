@@ -3,3 +3,8 @@ input[type="password"], textarea {
     background-color : #cccccc; 
   
   }
+input[type="text"], textarea {
+
+  background-color : #cccccc; 
+  
+  }
