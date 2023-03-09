@@ -9,7 +9,8 @@ const Signup = () => {
  const location = useLocation();
  const [passwordShown, setPasswordShown] = useState(false);
  const [password, setPassword] = useState('');
- const [isValid, setIsValid] = useState(false);
+ const [isValid, setIsValid] = useState(true);
+ const [matching, setIsMatching] = useState(true);
  
  // As explained in the Login page.
  const { emailPasswordSignup } = useContext(UserContext);
@@ -52,20 +53,18 @@ const passwordVerify = (event) => {
 
 
 // checks for matching passwords- STILL TO DO
-const matchingPasswords = (passwordOne, passwordTwo, message) =>{
-  let x = document.getElementById(passwordOne);
-  let y = passwordTwo
-  if(y.value === ""){
-    document.getElementById(message).innerHTML = "";
-  }else if (x.value !== y.value){
-    document.getElementById(message).innerHTML = 'passwords not matching';
-    document.getElementById(message).style.color = 'red';
+const matchingPasswords = (event) =>{
+  const confirmPass = event.target.value;
+  if(confirmPass === ""){
+    setIsMatching(true);
+  }else if (confirmPass !== password){
+    setIsMatching(false);
   }else{
-    document.getElementById(message).innerHTML = 'passwords match';
-    document.getElementById(message).style.color = 'green';
+    setIsMatching(true);
   }
 }
  
+//ToDo: FUNCTION TO CHECK ACCOUNT DOESNT ALREADY EXIST: CHECK EMAIL IN DATABASE
  
  // As explained in the Login page.
  const redirectNow = () => {
@@ -119,9 +118,11 @@ const matchingPasswords = (passwordOne, passwordTwo, message) =>{
      name="confirmPass"
      value={form.confirmPass}
      onInput={onFormInputChange}
+     onChange = {matchingPasswords} 
      style={{ marginBottom: "1rem" }}
      required = "true"
    />
+   {matching ? null : <p><span style={{color:'red'}}>Passwords Do Not Match</span></p>}
    <TextField
      type="date"
      variant="outlined"
