@@ -18,7 +18,8 @@
     "morgan": "^1.9.1",
     "path": "^0.12.7",
     "pug": "^3.0.2",
-    "react-share": "^4.4.1"
+    "react-share": "^4.4.1",
+    "realm-web": "^1.5.1"
   },
   "devDependencies": {
     "react": "^18.2.0"

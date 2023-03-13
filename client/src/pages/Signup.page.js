@@ -51,7 +51,6 @@ const passwordVerify = (event) => {
   
 }
 
-
 // checks for matching passwords- STILL TO DO
 const matchingPasswords = (event) =>{
   const confirmPass = event.target.value;
