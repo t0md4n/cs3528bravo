@@ -17,7 +17,8 @@ import '../components/css/eventsPage.css';
 
   const handleSignUp = id => {
     // const eventToUpdate = events.find(event => event._id === id);
-  
+    document.getElementById(`event-button-${id}`).disabled = true;
+
     fetch(`https://cs3528.azurewebsites.net/events/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
@@ -35,20 +36,20 @@ import '../components/css/eventsPage.css';
   return (
     <div className="events-page">
       <h1>Events</h1>
-      <ul>
+      <div className="event-list">
         {events.map(event => (
-          <li key={event._id} className="event">
-            <h2>Type: {event.sportType}</h2>
-            <h2>City: {event.city}</h2>
-            <p>Address: {event.address}</p>
-            <p>Date: {event.date}</p>
-            <p>Time: {event.time}</p>
-            <p>Signed up: {event.signedUp}</p>
-            <p>Limit: {event.maxParticipants}</p>
-            <button id="event-button" className="event-button" onClick={() => handleSignUp(event._id)}>Sign Up</button>
-          </li>
+        <div key={event._id} className="event">
+          <h2>Type: {event.sportType}</h2>
+          <h2>City: {event.city}</h2>
+          <p>Address: {event.address}</p>
+          <p>Date: {event.date}</p>
+          <p>Time: {event.time}</p>
+          <p>Signed up: {event.signedUp}</p>
+          <p>Limit: {event.maxParticipants}</p>
+          <button id={`event-button-${event._id}`} className="event-button" onClick={() => handleSignUp(event._id)}>Sign Up</button>
+        </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
  };

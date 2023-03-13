@@ -1,42 +1,62 @@
 .events-page {
-    padding: 20px;
-  }
-  
-  .event {
-    margin-bottom: 20px;
-    border: 1px solid gray;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  p {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  ul {
-    list-style-type: none;
-    text-align: left;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 15%;
   }
 
-  .event-button {
-    margin-top: 20px;
-    padding: 5px 10px;
-    background-color: green;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-  }
+.event-list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
   
+.event {
+  flex: 1 0 300px;
+  margin: 0 10px 20px;
+  padding: 20px;
+  /* background-color: #fff; */
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+
+h1 {
+  font-size: 36px;
+  /* margin-bottom: 20px; */
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.event-button {
+  background-color: #0077CC;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin: 4px 1px;
+  cursor: pointer;
+  text-align: center;
+  max-width: 100px;
+}
+  
+.event-button:hover {
+  background-color: #0062cc;
+}
+  
+button[disabled] {
+  opacity: 0.7; /* reduce the opacity of the button */
+  cursor: not-allowed; /* change the cursor to not-allowed */
+}
 
   @media (max-width: 768px) {
     .events-page {
