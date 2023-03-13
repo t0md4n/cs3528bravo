@@ -16,6 +16,8 @@ const Signup = () => {
  const { emailPasswordSignup } = useContext(UserContext);
  const [form, setForm] = useState({
    email: "",
+   fName: "",
+   lName: "",
    password: "",
    confirmPass: "",
    age: "",
@@ -88,6 +90,26 @@ const matchingPasswords = (event) =>{
      variant="outlined"
      name="email"
      value={form.email}
+     onInput={onFormInputChange}
+     style={{ marginBottom: "1rem" }}
+     required = "true"
+   />
+   <TextField
+     label="First Name"
+     type="fName"
+     variant="outlined"
+     name="fName"
+     value={form.fName}
+     onInput={onFormInputChange}
+     style={{ marginBottom: "1rem" }}
+     required = "true"
+   />
+   <TextField
+     label="Last Name"
+     type="lName"
+     variant="outlined"
+     name="lName"
+     value={form.lName}
      onInput={onFormInputChange}
      style={{ marginBottom: "1rem" }}
      required = "true"
