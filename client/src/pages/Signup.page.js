@@ -19,7 +19,6 @@ const Signup = () => {
    password: "",
    confirmPass: "",
    age: "",
-   location : "",
  });
  
  // As explained in the Login page.
@@ -51,7 +50,7 @@ const passwordVerify = (event) => {
   
 }
 
-// checks for matching passwords- STILL TO DO
+// checks for matching passwords
 const matchingPasswords = (event) =>{
   const confirmPass = event.target.value;
   if(confirmPass === ""){
@@ -63,14 +62,11 @@ const matchingPasswords = (event) =>{
   }
 }
  
-//ToDo: FUNCTION TO CHECK ACCOUNT DOESNT ALREADY EXIST: CHECK EMAIL IN DATABASE
- 
  // As explained in the Login page.
  const redirectNow = () => {
    const redirectTo = location.search.replace("?redirectTo=", "");
    navigate(redirectTo ? redirectTo : "/");
  }
-
  
  // As explained in the Login page.
  const onSubmit = async () => {
