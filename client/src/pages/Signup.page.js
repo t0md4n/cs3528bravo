@@ -16,8 +16,8 @@ const Signup = () => {
  const { emailPasswordSignup } = useContext(UserContext);
  const [form, setForm] = useState({
    email: "",
-   fName: "",
-   lName: "",
+   firstName: "",
+   lastName: "",
    password: "",
    confirmPass: "",
    age: "",
@@ -96,9 +96,10 @@ const matchingPasswords = (event) =>{
    />
    <TextField
      label="First Name"
-     type="fName"
+     type="firstName"
      variant="outlined"
-     name="fName"
+     name="firstName"
+     id = "firstName"
      value={form.fName}
      onInput={onFormInputChange}
      style={{ marginBottom: "1rem" }}
@@ -106,9 +107,10 @@ const matchingPasswords = (event) =>{
    />
    <TextField
      label="Last Name"
-     type="lName"
+     type="lastName"
      variant="outlined"
-     name="lName"
+     name="lastName"
+     id = "lastName"
      value={form.lName}
      onInput={onFormInputChange}
      style={{ marginBottom: "1rem" }}
