@@ -16,8 +16,6 @@ const Signup = () => {
  const { emailPasswordSignup } = useContext(UserContext);
  const [form, setForm] = useState({
    email: "",
-   firstName: "",
-   lastName: "",
    password: "",
    confirmPass: "",
    age: "",
