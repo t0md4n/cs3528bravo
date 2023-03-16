@@ -29,7 +29,6 @@ const Signup = () => {
    setForm({ ...form, [name]: value });
  };
 
- 
  // toggle visibility of password
  const toggleVis = () => {
   setPasswordShown(!passwordShown);
@@ -95,28 +94,6 @@ const matchingPasswords = (event) =>{
      required = "true"
    />
    <TextField
-     label="First Name"
-     type="firstName"
-     variant="outlined"
-     name="firstName"
-     id = "firstName"
-     value={form.fName}
-     onInput={onFormInputChange}
-     style={{ marginBottom: "1rem" }}
-     required = "true"
-   />
-   <TextField
-     label="Last Name"
-     type="lastName"
-     variant="outlined"
-     name="lastName"
-     id = "lastName"
-     value={form.lName}
-     onInput={onFormInputChange}
-     style={{ marginBottom: "1rem" }}
-     required = "true"
-   />
-   <TextField
      label="Password"
      type={passwordShown ? "text" : "password"}
      variant="outlined"
@@ -152,8 +129,6 @@ const matchingPasswords = (event) =>{
      required = "true"
    />
    
-
-   
    <Button variant="contained" color="primary" onClick={onSubmit}>
      Sign up
    </Button>
@@ -161,6 +136,5 @@ const matchingPasswords = (event) =>{
  </form>
 }
  
-
 
 export default Signup;
