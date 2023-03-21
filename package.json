@@ -6,6 +6,10 @@
   "scripts": {
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:thomaswdaniel/cs3528bravo.git"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -18,6 +22,8 @@
     "morgan": "^1.9.1",
     "path": "^0.12.7",
     "pug": "^3.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-share": "^4.4.1",
     "realm-web": "^1.5.1"
   },
