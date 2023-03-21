@@ -6,10 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import "./index.css";
 import './App.css';
 import {
-  BrowserRouter as Router,
   Route,
   Routes
-
 } from "react-router-dom";
 
 import Navbar from "./pages/Navbar.page";
