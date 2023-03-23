@@ -2,6 +2,7 @@ import { Button } from '@mui/material'
 import { useContext } from 'react';
 import { UserContext } from '../contexts/user.context';
 import { Link } from "react-router-dom";
+import { Container } from '@mui/system';
 
  
 export default function Home() {
@@ -24,9 +25,14 @@ export default function Home() {
  
  return (
    <>
+     <Container style={{ paddingTop: '20px' }}>
+       
      <h1>Welcome you are now logged in</h1>
      <p>Want to see current events? <Link to="/events">Events</Link></p>
      <Button variant="contained" onClick={logOut}>Logout</Button>
+
+       
+     </Container>
    </>
  )
 }

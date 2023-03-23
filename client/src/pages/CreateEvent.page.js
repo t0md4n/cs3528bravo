@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import '../components/css/createEvent.css';
+import { Container } from '@mui/system';
+import { Button } from "@mui/material";
+
+
 
 // https://cs3528.azurewebsites.net/createevent
  const CreateEvent = () => {
@@ -35,64 +39,79 @@ import '../components/css/createEvent.css';
         })
     }
 
-    return (  
-    <form onSubmit={handleSubmit}>
-        <div className="createevent">  
-            <h2>Create an Event</h2>
-
-            <select
-                value={sportType}
-                onChange={(event) => setSportType(event.target.value)}
-            >
-                <option value="">Select Sport</option>
-                <option value="Football">Football</option>
-                <option value="Tennis">Tennis</option>
-                <option value="Basketball">Basketball</option>
-            </select>
-
-            <input 
-                type='text' 
-                placeholder='Address'value={address}
-                onChange={(event) => setAddress(event.target.value)}
-            />
-            
-            <select 
-                value={city}
-                onChange={(event) => setCity(event.target.value)}
-            >
-            <option value="">-- Select a city --</option>
-            <optgroup label="Scotland">
-                <option value="Edinburgh">Edinburgh</option>
-                <option value="Glasgow">Glasgow</option>
-                <option value="Aberdeen">Aberdeen</option>
-                <option value="Dundee">Dundee</option>
-            </optgroup>
-            </select>
-
-
-            <input 
-                type='date' 
-                placeholder='Date'
-                value={date}
-                onChange={(event) => setDate(event.target.value)}    
-            />
-            <input type='time' 
-                placeholder='Time'
-                value={time}
-                onChange={(event) => setTime(event.target.value)} 
-            />
-            <input type='number' 
-                placeholder='Max participants'
-                value={maxParticipants}
-                onChange={(event) => setMaxParticipants(event.target.value)}
-            />
-
+     return (
         
-            <button type='submit'>Create</button>
-        </div>
-    </form>
+         <Container style={{ paddingTop: '20px',display: "flex", flexDirection: "column", maxWidth: "px", margin: "auto"}}>
+            <form onSubmit={handleSubmit}>
+                 <h2>Create an Event</h2>
+                 <label>
+                     Select a sport:
+                    <select name="pickSport"
+                        value={sportType}
+                        onChange={(event) => setSportType(event.target.value)}
+                    >
+                        <option value="Football">Football</option>
+                        <option value="Tennis">Tennis</option>
+                        <option value="Basketball">Basketball</option>
+                    </select>
+                </label>
+                 <hr/ >
+                 <label>
+                    Enter the location of the event:
+                    <input 
+                        type='text' 
+                        placeholder='Address'value={address}
+                        onChange={(event) => setAddress(event.target.value)}
+                        />
+                 </label>
+                 <hr/ >
+                <label>
+                    Select a city:
+                    <select 
+                        name="selectedCity"
+                        defaultValue={['Aberdeen']}
+                        value={city}
+                        onChange={(event) => setCity(event.target.value)}
+                    >
+                        <option value="Edinburgh">Edinburgh</option>
+                        <option value="Glasgow">Glasgow</option>
+                        <option value="Aberdeen">Aberdeen</option>
+                        <option value="Dundee">Dundee</option>
+                    </select>
+                 </label>
+                 <hr/ >
 
-    )
+
+                <label>
+                    When does the event start?
+                    <input 
+                        type='date' 
+                        placeholder='Date'
+                        value={date}
+                        onChange={(event) => setDate(event.target.value)}    
+                    />
+                    <input type='time' 
+                        placeholder='Time'
+                        value={time}
+                        onChange={(event) => setTime(event.target.value)} 
+                        />
+                 </label>
+                 <hr/ >
+                 <label>
+                    Maximum number of participant (including yourself):
+                    <input type='number' 
+                        placeholder='0'
+                        value={maxParticipants}
+                        onChange={(event) => setMaxParticipants(event.target.value)}
+                        />
+                 </label>
+                 <hr/ >
+                    <Button variant="contained" color="primary" type="submit">
+                        Create
+                    </Button>
+                </form>
+        </Container>
+     )
  };
 
  export default CreateEvent;

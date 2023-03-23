@@ -17,7 +17,7 @@ import PrivateRoute from "./pages/PrivateRoute.page";
 import Signup from "./pages/Signup.page";
 import Events from "./pages/Events.page";
 import CreateEvent from "./pages/CreateEvent.page";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -27,6 +27,7 @@ function App() {
       < Navbar />
       <UserProvider>
         <Routes>
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/events" element={<Events />} />
@@ -34,7 +35,6 @@ function App() {
           {/* We are protecting the create event and event page from unauthenticated */}
           {/* users by wrapping it with PrivateRoute here. */}
           <Route element={<PrivateRoute />}>
-            <Route exact path="/" element={<Home />} />
             </Route>
         </Routes>
       </UserProvider>
