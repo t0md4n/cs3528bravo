@@ -1,15 +1,7 @@
 .Heading{
-  text-align: center;
+  text-align: left;
   padding-top: 60px;
   text-transform: uppercase;
-}
-
-body{
-  background-color: #cccccc;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .masonry-grid {
@@ -21,16 +13,6 @@ body{
   break-inside: avoid;
 }
 
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
 button:hover {
   opacity:1;
 }
@@ -45,11 +27,3 @@ button:hover {
   border: none;
   background: #ffffff;
 }
-
-
-
-
-
-
-
-

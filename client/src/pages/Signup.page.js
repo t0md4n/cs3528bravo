@@ -79,7 +79,7 @@ const matchingPasswords = (event) =>{
    }
  };
  
- return <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto" }}>
+  return <form style={{ padding: "20px", display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto" }}>
    <h1>Sign up</h1>
    <TextField
      label="Email"

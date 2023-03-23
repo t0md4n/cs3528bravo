@@ -74,7 +74,7 @@ const Login = () => {
    }
  };
  
- return <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto" }}>
+  return <form style={{ padding: "20px", display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto" }}>
    <h1>Login</h1>
    <TextField
      label="Email"
@@ -98,7 +98,7 @@ const Login = () => {
      Login
    </Button>
    <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
- </form>
+  </form>
 }
  
 export default Login;
