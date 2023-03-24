@@ -10,7 +10,7 @@ import { UserContext } from "../contexts/user.context";
 // https://cs3528.azurewebsites.net/events/${id}
 // http://localhost:3001/getevents
 
- const Events = () => {
+const Events = () => {
   const [events, setEvents] = useState([]);
   const { user } = useContext(UserContext);
   const userProfile = user ? user.profile : null;
@@ -23,13 +23,13 @@ import { UserContext } from "../contexts/user.context";
   // user id
   const userId = user.id;
 
- console.log(`Welcome, ${userId}!`)
+  console.log(`Welcome, ${userId}!`)
 
- console.log(userProfile.email)
+  console.log(userProfile.email)
 
 
   useEffect(() => {
-    fetch('http://localhost:3001/getevents')
+    fetch('https://cs3528.azurewebsites.net/getevents')
       .then(res => res.json())
       .then(events => setEvents(events))
       .catch(err => console.error(err));
@@ -51,12 +51,11 @@ import { UserContext } from "../contexts/user.context";
       .catch(err => console.error(err));
   };
   
-   return (
-    
-    <Container style={{ paddingTop: '20px',display: "flex", flexDirection: "row", margin: "auto"}}>
+  return (
+    <Container style={{ paddingTop: '20px' }}>
       <div className="events-page">
-        <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-          <h1>Events</h1>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <h1 style={{ margin: "0" }}>Events</h1>
           <Link to="/my-events">
             <Button variant="contained" color="primary" className="my-event-btn">
               My Events
@@ -80,6 +79,6 @@ import { UserContext } from "../contexts/user.context";
       </div>
     </Container>
   );
- };
+};
 
 export default Events;

@@ -1,0 +1,44 @@
+.my-events-page {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .back-to-events-btn {
+    margin-bottom: 20px;
+  }
+  
+  .my-event-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .event {
+    width: 48%;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  
+  .my-events-page h2 {
+    margin-bottom: 5px;
+  }
+  
+  .my-events-page p {
+    margin: 0;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .my-events-page {
+      width: 100%;
+    }
+  }
+  
