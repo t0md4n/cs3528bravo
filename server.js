@@ -56,6 +56,9 @@ app.get("/events", (req, res) => { //our GET route needs to point to the index.h
 app.get("/createevent", (req, res) => { //our GET route needs to point to the index.html in our build
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));  
 });
+app.get("/signup", (req, res) => { //our GET route needs to point to the index.html in our build
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));  
+});
 
 
 
