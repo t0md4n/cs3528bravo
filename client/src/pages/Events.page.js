@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import '../components/css/eventsPage.css';
 import { Container } from '@mui/system';
 import { Button } from "@mui/material";
@@ -52,22 +53,28 @@ import { UserContext } from "../contexts/user.context";
   
    return (
     
-    <Container style={{ paddingTop: '20px',display: "flex", flexDirection: "column", margin: "auto"}}>
-
+    <Container style={{ paddingTop: '20px',display: "flex", flexDirection: "row", margin: "auto"}}>
       <div className="events-page">
-        <h1>Events</h1>
+        <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+          <h1>Events</h1>
+          <Link to="/my-events">
+            <Button variant="contained" color="primary" className="my-event-btn">
+              My Events
+            </Button>
+          </Link>
+        </div>
         <div className="event-list">
           {events.map(event => (
-          <div key={event._id} className="event">
-            <h2>Type: {event.sportType}</h2>
-            <h2>City: {event.city}</h2>
-            <p>Address: {event.address}</p>
-            <p>Date: {event.date}</p>
-            <p>Time: {event.time}</p>
-            <p>Signed up: {event.signedUp}</p>
-            <p>Limit: {event.maxParticipants}</p>
-            <Button variant="contained" color="primary" id={`event-button-${event._id}`} className="event-button" onClick={() => handleSignUp(event._id)}>Sign Up</Button>
-          </div>
+            <div key={event._id} className="event">
+              <h2>Type: {event.sportType}</h2>
+              <h2>City: {event.city}</h2>
+              <p>Address: {event.address}</p>
+              <p>Date: {event.date}</p>
+              <p>Time: {event.time}</p>
+              <p>Signed up: {event.signedUp}</p>
+              <p>Limit: {event.maxParticipants}</p>
+              <Button variant="contained" color="primary" id={`event-button-${event._id}`} className="event-button" onClick={() => handleSignUp(event._id)}>Sign Up</Button>
+            </div>
           ))}
         </div>
       </div>
