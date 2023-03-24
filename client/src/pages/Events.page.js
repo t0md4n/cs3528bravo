@@ -12,19 +12,20 @@ import { UserContext } from "../contexts/user.context";
  const Events = () => {
   const [events, setEvents] = useState([]);
   const { user } = useContext(UserContext);
+  const userProfile = user ? user.profile : null;
   
   if (!user) {
     // User is not logged in
     console.log("Please log in to access this page");
   }
 
+  // user id
   const userId = user.id;
-  // Use the user ID as needed
 
-//  console.log(`Welcome, ${user.username}!`)
  console.log(`Welcome, ${userId}!`)
 
-  
+ console.log(userProfile.email)
+
 
   useEffect(() => {
     fetch('http://localhost:3001/getevents')
