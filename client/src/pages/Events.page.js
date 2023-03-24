@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import '../components/css/eventsPage.css';
 import { Container } from '@mui/system';
 import { Button } from "@mui/material";
-
+import { UserContext } from "../contexts/user.context";
 
 
 // https://cs3528.azurewebsites.net/getevents
@@ -11,9 +11,23 @@ import { Button } from "@mui/material";
 
  const Events = () => {
   const [events, setEvents] = useState([]);
+  const { user } = useContext(UserContext);
+  
+  if (!user) {
+    // User is not logged in
+    console.log("Please log in to access this page");
+  }
+
+  const userId = user.id;
+  // Use the user ID as needed
+
+//  console.log(`Welcome, ${user.username}!`)
+ console.log(`Welcome, ${userId}!`)
+
+  
 
   useEffect(() => {
-    fetch('https://cs3528.azurewebsites.net/getevents')
+    fetch('http://localhost:3001/getevents')
       .then(res => res.json())
       .then(events => setEvents(events))
       .catch(err => console.error(err));

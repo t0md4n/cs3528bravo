@@ -28,7 +28,7 @@ function App() {
       <UserProvider>
         <Routes>
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/signup" element={<Signup />} />>
+          <Route exact path="/signup" element={<Signup />} />
           {/* We are protecting the create event and event page from unauthenticated */}
           {/* users by wrapping it with PrivateRoute here. */}
           <Route element={<PrivateRoute />}>
