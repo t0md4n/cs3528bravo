@@ -89,4 +89,7 @@ button[disabled] {
       font-size: 14px;
       margin-bottom: 5px;
     }
+    .event-button {
+      font-size: 1px;
+    }
   }
