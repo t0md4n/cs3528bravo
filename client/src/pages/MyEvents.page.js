@@ -29,6 +29,7 @@ const MyEvents = () => {
     })
     .catch(err => console.error(err));
   };
+  
 
   const handleLeaveEvent = (eventId) => {
     fetch(`https://cs3528.azurewebsites.net/events/${eventId}/leave`, {
@@ -69,7 +70,7 @@ const MyEvents = () => {
             Back to Events
           </Button>
         </Link>
-        <h2>Events Created</h2>
+        <h2 className="signed-up-for-heading">Events Created</h2>
         <div className="my-event-list">
           {myEvents.map(event => (
             <div key={event._id} className="event">
@@ -81,12 +82,12 @@ const MyEvents = () => {
               <p>Signed up: {event.signedUp}</p>
               <p>Max Participants: {event.maxParticipants}</p>
               <div className='event-actions'>
-                <Button variant="contained" color="primary" onClick={() => handleCancelEvent(event._id)}>Cancel Event</Button>
+                <Button variant="contained" color="primary" size="small" onClick={() => handleCancelEvent(event._id)}>Cancel</Button>
               </div>
             </div>
           ))}
         </div>
-        <h2>Events Signed Up For</h2>
+        <h2 className="signed-up-for-heading">Signed Up For</h2>
         <div className="my-event-list">
           {signedUpEvents.map(event => (
             <div key={event._id} className="event">
@@ -96,7 +97,7 @@ const MyEvents = () => {
               <p>Date: {event.date}</p>
               <p>Time: {event.time}</p>
               <div className='event-actions'>
-                <Button variant="contained" color="primary" onClick={() => handleLeaveEvent(event._id)}>Leave Event</Button>
+                <Button variant="contained" color="primary" size="small" onClick={() => handleLeaveEvent(event._id)}>Leave Event</Button>
               </div>
             </div>
           ))}
