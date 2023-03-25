@@ -16,6 +16,16 @@ const MyEvents = () => {
   // const userId = user.id;
   const userId = "63f3500cb72c98bd43764ac4"
 
+  const handleCancelEvent = (id) => {
+    fetch(`https://cs3528.azurewebsites.net/events/${id}`, {
+      method: 'DELETE',
+    })
+    .then(res => res.json())
+    .then(data => {
+      setMyEvents(myEvents.filter(event => event._id !== id));
+    })
+    .catch(err => console.error(err));
+  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/myevents/user/${userId}`)
@@ -37,13 +47,16 @@ const MyEvents = () => {
         <div className="my-event-list">
           {myEvents.map(event => (
             <div key={event._id} className="event">
-              <h2>Type: {event.sportType}</h2>
-              <h2>City: {event.city}</h2>
+              <h4>Type: {event.sportType}</h4>
+              <h4>City: {event.city}</h4>
               <p>Address: {event.address}</p>
               <p>Date: {event.date}</p>
               <p>Time: {event.time}</p>
               <p>Signed up: {event.signedUp}</p>
               <p>Max Participants: {event.maxParticipants}</p>
+              <div className='event-actions'>
+                <Button variant="contained" color="primary" onClick={() => handleCancelEvent(event._id)}>Cancel Event</Button>
+              </div>
             </div>
           ))}
         </div>
