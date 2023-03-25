@@ -1,8 +1,3 @@
-.my-events-page {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
   
   h1 {
     text-align: center;
@@ -12,20 +7,13 @@
   .back-to-events-btn {
     margin-bottom: 20px;
   }
+
   
-  .my-event-list {
+  .my-event-list{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-  
-  .event {
-    width: 48%;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   }
   
   .my-events-page h2 {
@@ -34,6 +22,27 @@
   
   .my-events-page p {
     margin: 0;
+  }
+
+  .event-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  .signed-up-for-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .event-actions:hover {
+    background-color: #0062cc;
+  }
+    
+  button[disabled] {
+    opacity: 0.7; /* reduce the opacity of the button */
+    cursor: not-allowed; /* change the cursor to not-allowed */
   }
   
   @media screen and (max-width: 768px) {
