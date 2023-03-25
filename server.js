@@ -98,6 +98,15 @@ app.post('/createevent', (req, res) => {
     });
 });
 
+// Endpoint for getting events created by a user
+app.get('/myevents/user/:creatorId', async (req, res) => {
+    const creatorId = req.params.creatorId;
+    console.log("Request for finding events received!!!");
+    console.log(creatorId);
+    const events = await Event.find({ creator: creatorId });
+    res.send(events);
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
