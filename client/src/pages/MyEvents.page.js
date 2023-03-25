@@ -8,7 +8,8 @@ import { UserContext } from '../contexts/user.context';
 
 // `https://cs3528.azurewebsites.net/events/user/${userId}`
 // `https://cs3528.azurewebsites.net/myevents/signedup/${userId}`
-// `http://localhost:3001/events/user/${userId}`
+// `https://cs3528.azurewebsites.net/events/${eventId}/leave`
+// `http://localhost:5000/events/user/${userId}`
 
 
 const MyEvents = () => {
@@ -19,7 +20,7 @@ const MyEvents = () => {
   const userId = "63f3500cb72c98bd43764ac4"
 
   const handleCancelEvent = (id) => {
-    fetch(`https://cs3528.azurewebsites.net/events/${id}`, {
+    fetch(`http://localhost:5000/events/${id}`, {
       method: 'DELETE',
     })
     .then(res => res.json())

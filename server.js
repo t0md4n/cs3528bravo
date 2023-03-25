@@ -101,11 +101,27 @@ app.post('/createevent', (req, res) => {
 // Endpoint for getting events created by a user
 app.get('/myevents/user/:creatorId', async (req, res) => {
     const creatorId = req.params.creatorId;
-    console.log("Request for finding events received!!!");
-    console.log(creatorId);
     const events = await Event.find({ creator: creatorId });
     res.send(events);
 });
+
+// Endpoint for cancelling an event
+app.delete('/events/:id', async (req, res) => {
+
+    const { id } = req.params;
+    const event = await Event.findOne({ _id: id });
+    
+    if (!event) {
+      return res.status(404).send(`Event with ID ${id} not found.`);
+    }
+    // if (event.signedUp > 0) {
+    //   return res.status(400).send('Cannot cancel an event that has participants signed up.');
+    // }
+    await Event.findOneAndDelete({ _id: id });
+    res.send(`Event with ID ${id} has been cancelled.`);
+});
+  
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
