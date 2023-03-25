@@ -88,6 +88,34 @@ app.patch('/events/:id', async (req, res) => {
     res.send(event);
 });
 
+// Endpoint for leaving an event
+app.patch('/events/:id/leave', async (req, res) => {
+    const { id } = req.params;
+    const { userId } = req.body;
+  
+    try {
+      const event = await Event.findById(id);
+  
+      if (!event) {
+        return res.status(404).send('Event not found');
+      }
+  
+      if (!event.participants.includes(userId)) {
+        return res.status(400).send('User is not signed up for this event');
+      }
+  
+      event.participants = event.participants.filter(participant => participant !== userId);
+      event.signedUp -= 1;
+      await event.save();
+  
+      res.send(event);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error leaving event');
+    }
+  });
+  
+
 app.post('/createevent', (req, res) => {
     const eventData = req.body;
     const event = new Event(eventData);
