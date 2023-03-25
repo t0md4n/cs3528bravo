@@ -7,11 +7,13 @@ import '../components/css/myEvents.css';
 import { UserContext } from '../contexts/user.context';
 
 // `https://cs3528.azurewebsites.net/events/user/${userId}`
+// `https://cs3528.azurewebsites.net/myevents/signedup/${userId}`
 // `http://localhost:3001/events/user/${userId}`
 
 
 const MyEvents = () => {
   const [myEvents, setMyEvents] = useState([]);
+  const [signedUpEvents, setSignedUpEvents] = useState([]);
   const { user } = useContext(UserContext)
   // const userId = user.id;
   const userId = "63f3500cb72c98bd43764ac4"
@@ -27,10 +29,33 @@ const MyEvents = () => {
     .catch(err => console.error(err));
   };
 
+  const handleLeaveEvent = (eventId) => {
+    fetch(`https://cs3528.azurewebsites.net/events/${eventId}/leave`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ userId })
+    })
+    .then(res => res.json())
+    .then(data => {
+      setSignedUpEvents(signedUpEvents.filter(event => event._id !== eventId));
+    })
+    .catch(err => console.error(err));
+  };
+  
+
   useEffect(() => {
     fetch(`http://localhost:5000/myevents/user/${userId}`)
     .then(res => res.json())
     .then(events => setMyEvents(events))
+    .catch(err => console.error(err));
+  }, [userId]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/myevents/signedup/${userId}`)
+    .then(res => res.json())
+    .then(events => setSignedUpEvents(events))
     .catch(err => console.error(err));
   }, [userId]);
 
@@ -60,6 +85,22 @@ const MyEvents = () => {
             </div>
           ))}
         </div>
+        <h2>Events Signed Up For</h2>
+        <div className="my-event-list">
+          {signedUpEvents.map(event => (
+            <div key={event._id} className="event">
+              <h4>Type: {event.sportType}</h4>
+              <h4>City: {event.city}</h4>
+              <p>Address: {event.address}</p>
+              <p>Date: {event.date}</p>
+              <p>Time: {event.time}</p>
+              <div className='event-actions'>
+                <Button variant="contained" color="primary" onClick={() => handleLeaveEvent(event._id)}>Leave Event</Button>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </Container>
   );
