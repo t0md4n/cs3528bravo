@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import '../components/css/createEvent.css';
 import { Container } from '@mui/system';
 import { Button } from "@mui/material";
-
+import { UserContext } from "../contexts/user.context";
 
 
 // https://cs3528.azurewebsites.net/createevent
@@ -14,6 +14,11 @@ import { Button } from "@mui/material";
     const [date, setDate] = useState("");
     const [time, setTime] = useState("")
     const [maxParticipants, setMaxParticipants] = useState("");
+
+    const { user } = useContext(UserContext);
+    
+    // user id
+    const userId = user.id;
 
     const handleSubmit = (event) => {
         // event.preventDefault();
@@ -30,8 +35,8 @@ import { Button } from "@mui/material";
                 time: time,
                 maxParticipants: maxParticipants,
                 signedUp: 1,
-                creator: "63f3500cb72c98bd43764ac4",
-                participants: ["63f3500cb72c98bd43764ac4"]
+                creator: userId,
+                participants: [userId]
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8'
