@@ -23,9 +23,9 @@ const Events = () => {
   // user id
   const userId = user.id;
 
-  console.log(`Welcome, ${userId}!`)
+  // console.log(`Welcome, ${userId}!`)
 
-  console.log(userProfile.email)
+  // console.log(userProfile.email)
 
 
   useEffect(() => {
@@ -38,11 +38,17 @@ const Events = () => {
   const handleSignUp = id => {
     // const eventToUpdate = events.find(event => event._id === id);
     document.getElementById(`event-button-${id}`).disabled = true;
+    
+    // Construct the request body with the user ID
+    const requestBody = {
+      signedUp: events.find(event => event._id === id),
+      userId: userId,
+    };
 
     fetch(`https://cs3528.azurewebsites.net/events/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ signedUp: events.find(event => event._id === id)}),
+      body: JSON.stringify(requestBody),
     })
       .then(res => res.json())
       .then(updatedEvent => {
