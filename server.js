@@ -80,13 +80,36 @@ app.get("/getevents", async (req, res) => {
 
 });
 
+// Endpoint for handling sign up for events
 app.patch('/events/:id', async (req, res) => {
     const { id } = req.params;
-    // const { signedUp } = req.body;
-    const event = await Event.findOneAndUpdate({ _id: id }, { $inc: { signedUp: 1 } });
-
-    res.send(event);
-});
+    const { userId } = req.body;
+  
+    try {
+      const event = await Event.findById(id);
+      if (!event) {
+        return res.status(404).send({ message: 'Event not found' });
+      }
+  
+    //   if (event.signedUp >= event.maxParticipants) {
+    //     return res.status(400).send({ message: 'Event is already full' });
+    //   }
+  
+      if (event.participants.includes(userId)) {
+        return res.status(400).send({ message: 'User has already signed up for this event' });
+      }
+  
+      event.participants.push(userId);
+      event.signedUp += 1;
+  
+      await event.save();
+      res.send(event);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ message: 'Internal Server Error' });
+    }
+  });
+  
 
 // Endpoint for leaving an event
 app.patch('/events/:id/leave', async (req, res) => {
