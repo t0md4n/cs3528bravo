@@ -22,7 +22,7 @@ function NavigationBar() {
                   <NavDropdown.Item href="/createevent">Create Event</NavDropdown.Item>
                   <NavDropdown.Item href="/events">Current Events</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="/myevents">My Events</NavDropdown.Item>
+                  <NavDropdown.Item href="/my-events">My Events</NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link href="/login">Login</Nav.Link>
                 <Nav.Link href="/signup">Sign up</Nav.Link>
