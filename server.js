@@ -84,6 +84,20 @@ app.get("/getevents", async (req, res) => {
 
 });
 
+// Endpoint for fetching signed up events for a user
+// Endpoint for fetching signed up events for a user
+app.get('/myevents/signedup/:userId', async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const events = await Event.find({ participants: userId });
+    res.send(events);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error fetching signed up events');
+  }
+});
+
+
 // Endpoint for handling sign up for events
 app.patch('/events/:id', async (req, res) => {
     const { id } = req.params;

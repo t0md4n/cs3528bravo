@@ -26,6 +26,5 @@
     "react-dom": "^18.2.0",
     "react-share": "^4.4.1",
     "realm-web": "^1.5.1"
-  },
-  "devDependencies": {}
+  }
 }
