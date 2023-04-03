@@ -163,6 +163,40 @@ app.post('/createevent', (req, res) => {
     });
 });
 
+// Endpoint for sending update email
+app.get('/sendEmail', (req, res) => {
+  const { email, subject, message } = req.body;
+  
+  const transporter = nodemailer.createTransport({
+      host: 'smtp.office365.com',
+      port: 587,
+      secure: false,
+      auth: {
+          user: 'sporesevent@outlook.com',
+          pass: 'cs3528bravo'
+      }
+  });
+  
+  // Set up email options
+  let mailOptions = {
+    from: 'sporesevent@outlook.com',
+    to: 'rahiasm@gmail.com',
+    subject: 'Update',
+    text: 'cs3528 has joined the event'
+  };
+
+  // Send email using Nodemailer
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+      res.status(500).send('Error sending email');
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.status(200).send('Email sent successfully');
+    }
+  });
+});
+
 // Endpoint for getting events created by a user
 app.get('/myevents/user/:creatorId', async (req, res) => {
     const creatorId = req.params.creatorId;
