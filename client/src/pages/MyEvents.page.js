@@ -20,7 +20,7 @@ const MyEvents = () => {
   // const userId = "63f3500cb72c98bd43764ac4"
 
   const handleCancelEvent = (id) => {
-    fetch(`https://cs3528.azurewebsites.net/events/${id}`, {
+    fetch(`http://localhost:5000/events/${id}`, {
       method: 'DELETE',
     })
     .then(res => res.json())
@@ -32,7 +32,7 @@ const MyEvents = () => {
   
 
   const handleLeaveEvent = (eventId) => {
-    fetch(`https://cs3528.azurewebsites.net/${eventId}/leave`, {
+    fetch(`http://localhost:5000/events/${eventId}/leave`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -48,14 +48,14 @@ const MyEvents = () => {
   
 
   useEffect(() => {
-    fetch(`https://cs3528.azurewebsites.net/myevents/user/${userId}`)
+    fetch(`http://localhost:5000/myevents/user/${userId}`)
     .then(res => res.json())
     .then(events => setMyEvents(events))
     .catch(err => console.error(err));
   }, [userId]);
 
   useEffect(() => {
-    fetch(`https://cs3528.azurewebsites.net/myevents/signedup/${userId}`)
+    fetch(`http://localhost:5000/myevents/signedup/${userId}`)
     .then(res => res.json())
     .then(events => setSignedUpEvents(events))
     .catch(err => console.error(err));
