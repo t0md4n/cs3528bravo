@@ -64,7 +64,9 @@ app.get("/signup", (req, res) => { //our GET route needs to point to the index.h
 
 app.get("/getevents/:userId", async (req, res) => { 
   const { userId } = req.params;
-    const events = await Event.find({ creator: { $ne: userId } });
+    const events = await Event.find({ 
+      creator: { $ne: userId },
+      $expr: { $lt: [ "$signedUp", "$maxParticipants" ] }    });
 
     // const transformedEvents = events.map(event => {
     //     const date = new Date(event.date);
@@ -77,7 +79,7 @@ app.get("/getevents/:userId", async (req, res) => {
     //       minutes: date.getMinutes(),
     //     };
     //   });
-      res.send(events);
+    res.send(events);
 
 });
 
