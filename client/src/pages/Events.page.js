@@ -28,7 +28,7 @@ const Events = () => {
 
 
   useEffect(() => {
-    fetch(`https://cs3528.azurewebsites.net/getevents/${userId}`)
+    fetch(`http://localhost:5000/getevents/${userId}`)
       .then(res => res.json())
       .then(events => setEvents(events))
       .catch(err => console.error(err));
