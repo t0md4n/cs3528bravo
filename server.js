@@ -69,7 +69,8 @@ app.get("/getevents/:userId", async (req, res) => {
   const events = await Event.find({ 
     creator: { $ne: userId },
     $expr: { $lt: [ "$signedUp", "$maxParticipants" ] },
-    date: { $gt: currentDate }
+    date: { $gt: currentDate },
+    participants: { $not: { $in: [mongoose.Types.ObjectId(userId)] } }
   });
   
   res.send(events);
