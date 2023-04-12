@@ -24,12 +24,11 @@ const Events = () => {
   const userId = user.id;
 
   // console.log(`Welcome, ${userId}!`)
-
   // console.log(userProfile.email)
 
 
   useEffect(() => {
-    fetch('https://cs3528.azurewebsites.net/getevents')
+    fetch(`https://cs3528.azurewebsites.net/getevents/${userId}`)
       .then(res => res.json())
       .then(events => setEvents(events))
       .catch(err => console.error(err));

@@ -66,25 +66,20 @@ app.get("/my-events", (req, res) => { //our GET route needs to point to the inde
 
 
 
-app.get("/getevents", async (req, res) => { 
-    const events = await Event.find({});
+app.get("/getevents/:userId", async (req, res) => { 
+  const { userId } = req.params;
+  const currentDate = new Date().toLocaleDateString('en-GB');  
 
-    // const transformedEvents = events.map(event => {
-    //     const date = new Date(event.date);
-    //     return {
-    //       ...event._doc,
-    //       day: date.getDate(),
-    //       month: date.getMonth(),
-    //       year: date.getFullYear(),
-    //       hour: date.getHours(),
-    //       minutes: date.getMinutes(),
-    //     };
-    //   });
-      res.send(events);
+  const events = await Event.find({ 
+    creator: { $ne: userId },
+    $expr: { $lt: [ "$signedUp", "$maxParticipants" ] },
+    date: { $gt: currentDate }
+  });
+  
+  res.send(events);
 
 });
 
-// Endpoint for fetching signed up events for a user
 // Endpoint for fetching signed up events for a user
 app.get('/myevents/signedup/:userId', async (req, res) => {
   const { userId } = req.params;
