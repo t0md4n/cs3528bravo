@@ -41,7 +41,7 @@ const MyEvents = () => {
     })
     .then(res => res.json())
     .then(data => {
-      setSignedUpEvents(signedUpEvents.filter(event => event._id !== eventId));
+      setSignedUpEvents(signedUpEvents.filter(event => event._id != eventId));
     })
     .catch(err => console.error(err));
   };

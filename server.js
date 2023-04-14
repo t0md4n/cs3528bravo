@@ -141,7 +141,7 @@ app.patch('/events/:id/leave', async (req, res) => {
         return res.status(400).send('User is not signed up for this event');
       }
   
-      event.participants = event.participants.filter(participant => participant !== userId);
+      event.participants = event.participants.filter(participant => participant != userId);
       event.signedUp -= 1;
       await event.save();
   
