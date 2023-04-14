@@ -32,7 +32,7 @@ const MyEvents = () => {
   
 
   const handleLeaveEvent = (eventId) => {
-    fetch(`https://cs3528.azurewebsites.net/${eventId}/leave`, {
+    fetch(`https://cs3528.azurewebsites.net/events/${eventId}/leave`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -45,6 +45,7 @@ const MyEvents = () => {
     })
     .catch(err => console.error(err));
   };
+  
   
 
   useEffect(() => {

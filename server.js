@@ -129,7 +129,6 @@ app.patch('/events/:id', async (req, res) => {
 app.patch('/events/:id/leave', async (req, res) => {
     const { id } = req.params;
     const { userId } = req.body;
-  
     try {
       const event = await Event.findById(id);
   
