@@ -11,7 +11,7 @@ import '../components/css/home.css';
 export default function Home() {
  const { logOutUser } = useContext(UserContext);
  
- // This function is called when the user clicks the "Logout" button.
+ // called when the user clicks the logout button
  const logOut = async () => {
    try {
      // Calling the logOutUser function from the user context.

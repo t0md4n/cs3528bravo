@@ -12,11 +12,10 @@ app.use(express.json());
 app.use(cors());
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -108,22 +107,22 @@ app.patch('/events/:id', async (req, res) => {
     //   if (event.signedUp >= event.maxParticipants) {
     //     return res.status(400).send({ message: 'Event is already full' });
     //   }
-  
-      if (event.participants.includes(userId)) {
-        return res.status(400).send({ message: 'User has already signed up for this event' });
-      }
-  
-      event.participants.push(userId);
-      event.signedUp += 1;
-  
-      await event.save();
-      res.send(event);
-    } catch (error) {
-      console.error(error);
-      res.status(500).send({ message: 'Internal Server Error' });
+
+    if (event.participants.includes(userId)) {
+      return res.status(400).send({ message: 'User has already signed up for this event' });
     }
-  });
-  
+
+    event.participants.push(userId);
+    event.signedUp += 1;
+
+    await event.save();
+    res.send(event);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: 'Internal Server Error' });
+  }
+});
+
 
 // Endpoint for leaving an event
 app.patch('/events/:id/leave', async (req, res) => {
@@ -218,7 +217,7 @@ app.delete('/events/:id', async (req, res) => {
     await Event.findOneAndDelete({ _id: id });
     res.send(`Event with ID ${id} has been cancelled.`);
 });
-  
+
 
 
 // catch 404 and forward to error handler
