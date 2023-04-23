@@ -30,7 +30,7 @@ app.use(cookieParser());
 
 app.use(express.static('./client/build'));
 
-app.use('/api/data', require('./routes/new-index.js'))
+app.use('/api/data', require('./routes/index.js'))
 
 const url = 'mongodb+srv://Cluster34479:UWFtRFtGX090@cluster34479.1jsddom.mongodb.net/cs3528';
 
