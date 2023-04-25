@@ -32,6 +32,7 @@ app.use(express.static('./client/build'));
 
 app.use('/api/data', require('./routes/index.js'))
 
+// mongo connection string
 const url = 'mongodb+srv://Cluster34479:UWFtRFtGX090@cluster34479.1jsddom.mongodb.net/cs3528';
 
 mongoose.connect(url, {

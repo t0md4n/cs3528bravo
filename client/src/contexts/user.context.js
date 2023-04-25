@@ -2,17 +2,17 @@ import { createContext, useState } from "react";
 import { App, Credentials } from "realm-web";
 import { APP_ID } from "../realm/constants";
  
-// Creating a Realm App Instance
+// create a realm app instance
 const app = new App(APP_ID);
  
-// Creating a user context to manage and access all the user related functions
-// across different components and pages.
+// creating a user context to manage and access all the user related functions
+// across different components and pages
 export const UserContext = createContext();
  
 export const UserProvider = ({ children }) => {
  const [user, setUser] = useState(null);
  
- // Function to log in user into our App Service app using their email & password
+ // logs the user into our app service app using their email & password
  const emailPasswordLogin = async (email, password) => {
    const credentials = Credentials.emailPassword(email, password);
    const authenticatedUser = await app.logIn(credentials);
@@ -20,25 +20,25 @@ export const UserProvider = ({ children }) => {
    return authenticatedUser;
  };
  
- // Function to sign up user into our App Service app using their email & password
+ // signs up the user into our app service app using their email & password
  const emailPasswordSignup = async (email, password) => {
    try {
      await app.emailPasswordAuth.registerUser(email, password);
-     // Since we are automatically confirming our users, we are going to log in
-     // the user using the same credentials once the signup is complete.
+     // we are automatically confirming users, so, we are going to log in
+     // the user using the same credentials once the signup is complete
      return emailPasswordLogin(email, password);
    } catch (error) {
      throw error;
    }
  };
  
- // Function to fetch the user (if the user is already logged in) from local storage
+ // this fetches the user (if the user is already logged in) from local storage
  const fetchUser = async () => {
    if (!app.currentUser) return false;
    try {
      await app.currentUser.refreshCustomData();
-     // Now, if we have a user, we are setting it to our user context
-     // so that we can use it in our app across different components.
+     // if we have the user, we are setting it to our user context
+     // so that we can use it in our app across different components
      setUser(app.currentUser);
      return app.currentUser;
    } catch (error) {
@@ -46,12 +46,12 @@ export const UserProvider = ({ children }) => {
    }
  }
  
- // Function to logout user from our App Services app
+ // logout the user from our app services app
  const logOutUser = async () => {
    if (!app.currentUser) return false;
    try {
      await app.currentUser.logOut();
-     // Setting the user to null once loggedOut.
+     // set the user to null once logged out
      setUser(null);
      return true;
    } catch (error) {
