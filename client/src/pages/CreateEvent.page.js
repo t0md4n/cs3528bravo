@@ -16,7 +16,8 @@ import { UserContext } from "../contexts/user.context";
     const [maxParticipants, setMaxParticipants] = useState("");
 
     const { user } = useContext(UserContext);
-    
+    const userProfile = user ? user.profile : null;
+
     // user id
     const userId = user.id;
 
@@ -36,7 +37,8 @@ import { UserContext } from "../contexts/user.context";
                 maxParticipants: maxParticipants,
                 signedUp: 1,
                 creator: userId,
-                participants: [userId]
+                participants: [userId],
+                userEmail: userProfile.email
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8'

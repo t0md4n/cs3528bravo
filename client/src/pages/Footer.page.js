@@ -1,12 +1,12 @@
 import React from 'react';
 import '../components/css/footer.css';
 
-const Footer=()=> {
+const Footer = () => {
     return (
-        <div className="footer">
-            <div className="sb__footer section__padding">
-                <div className="sb__footer-below">
-                    <div className="sb__footer-copyright">
+        <div className = "footer">
+            <div className = "sb__footer section__padding">
+                <div className = "sb__footer-below">
+                    <div className = "sb__footer-copyright">
                         <p>
                             @{new Date().getFullYear()} Spòrs. All rights reserved.
                         </p>
@@ -20,4 +20,5 @@ const Footer=()=> {
         </div>
     )
 }
+
 export default Footer;
