@@ -18,6 +18,7 @@ import Signup from "./pages/Signup.page";
 import Events from "./pages/Events.page";
 import CreateEvent from "./pages/CreateEvent.page";
 import MyEvents from "./pages/MyEvents.page";
+import Footer from "./pages/Footer.page";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -34,12 +35,14 @@ function App() {
           {/* users by wrapping it with PrivateRoute here. */}
           <Route element={<PrivateRoute />}>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/home" element={<Home />} />
             <Route exact path="/events" element={<Events />} />
             <Route exact path="/createevent" element={<CreateEvent/> } />
             <Route exact path="/my-events" element={<MyEvents />} />
           </Route>
         </Routes>
       </UserProvider>
+      <Footer />
     </BrowserRouter>
   );
  }
