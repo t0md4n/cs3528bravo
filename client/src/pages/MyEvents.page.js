@@ -82,6 +82,7 @@ const MyEvents = () => {
               <p>Time: {event.time}</p>
               <p>Signed up: {event.signedUp}</p>
               <p>Max Participants: {event.maxParticipants}</p>
+              <p>Created by: {event.userEmail}</p>
               <div className='event-actions'>
                 <Button variant="contained" color="primary" size="small" onClick={() => handleCancelEvent(event._id)}>Cancel</Button>
               </div>
@@ -97,6 +98,7 @@ const MyEvents = () => {
               <p>Address: {event.address}</p>
               <p>Date: {event.date}</p>
               <p>Time: {event.time}</p>
+              <p>Created by: {event.userEmail}</p>
               <div className='event-actions'>
                 <Button variant="contained" color="primary" size="small" onClick={() => handleLeaveEvent(event._id)}>Leave Event</Button>
               </div>
