@@ -1,0 +1,32 @@
+.footer{
+    background-color: #2d2d32;
+    padding: 2rem 2rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;   
+}
+
+.sb__footer-below{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0.3rem;
+}
+.sb__footer-below-links{
+    display: flex;
+    flex-direction: row;
+}
+.sb__footer-below-links p{
+    font-size: 13px;
+    line-height: 15px;
+    margin-left: 2rem;
+    color: white;
+    font-weight: 600;
+}
+.sb__footer-copyright{
+    font-size: 13px;
+    line-height: 15px;
+    color: white;
+    font-weight: 600;
+}
