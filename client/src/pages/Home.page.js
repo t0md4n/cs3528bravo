@@ -30,16 +30,16 @@ export default function Home() {
  return (
    <>
     <Hero 
-    cName="hero"
-    heroImg="https://i.ibb.co/W3xZCVL/hero.jpg"
-    title="Welcome to Spòrs"
-    text="Want to view the current events?"
-    buttonText="Events"
-    url="./events"
-    btnClass="show"
+    cName = "hero"
+    heroImg = "https://i.ibb.co/W3xZCVL/hero.jpg"
+    title = "Welcome to Spòrs"
+    text = "Want to view the current events?"
+    buttonText = "Events"
+    url = "./events"
+    btnClass = "show"
     
     />
-    <Container style={{ paddingTop: '100px', paddingBottom: '100px' }}>
+    <Container style={{ paddingTop: '50px', paddingBottom: '100px' }}>
     
       <h1>You are currently logged in</h1>
       <Button style={{left: '50%', transform: 'translate(-50%, 50%)'}}variant="contained" onClick={logOut}>Logout</Button>

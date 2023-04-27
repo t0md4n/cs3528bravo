@@ -13,6 +13,7 @@
     justify-content: space-between;
     margin-top: 0.3rem;
     
+    
 }
 .sb__footer-below-links a {
     text-decoration: none !important;
@@ -23,7 +24,7 @@
     flex-direction: row; 
 }
 .sb__footer-below-links p {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 10px;
     margin-left: 2rem;
     color: #1D1D1F;
@@ -31,7 +32,7 @@
     
 }
 .sb__footer-copyright {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 10px;
     color: #1D1D1F;
     font-weight: 400;
