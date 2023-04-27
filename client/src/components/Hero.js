@@ -1,7 +1,7 @@
 import "./css/heroStyles.css";
 
 function Hero(props) {
-    return ( <>
+    return (<>
     <div className="props.cName">
         <img alt="HeroImg" src={props.heroImg}/>
         <div className="hero-text">

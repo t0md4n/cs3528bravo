@@ -4,7 +4,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;   
+    width: 100%;
 }
 
 .sb__footer-below{
@@ -16,6 +16,8 @@
 .sb__footer-below-links{
     display: flex;
     flex-direction: row;
+    text-decoration:none;
+
 }
 .sb__footer-below-links p{
     font-size: 11px;
@@ -23,6 +25,9 @@
     margin-left: 2rem;
     color: #1D1D1F;
     font-weight: 600;
+    text-decoration:none;
+
+    
 }
 .sb__footer-copyright{
     font-size: 11px;

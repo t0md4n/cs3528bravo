@@ -39,7 +39,7 @@ export default function Home() {
     btnClass="show"
     
     />
-    <Container style={{ paddingTop: '100px', paddingBottom: '150px' }}>
+    <Container style={{ paddingTop: '100px', paddingBottom: '100px' }}>
     
       <h1>You are currently logged in</h1>
       <Button style={{left: '50%', transform: 'translate(-50%, 50%)'}}variant="contained" onClick={logOut}>Logout</Button>
