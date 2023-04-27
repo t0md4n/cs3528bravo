@@ -112,7 +112,7 @@ import { UserContext } from "../contexts/user.context";
                         />
                  </label>
                  <hr/ >
-                    <Button variant="contained" color="primary" onClick={onSubmit}>
+                    <Button variant="contained" color="primary" type="submit">
                         Create
                     </Button>
                 </form>
