@@ -25,7 +25,7 @@ img {
     padding: 25px;
     font-size: 5rem;
     font-weight: 800;
-    background: #fff;
+    background: #ffffff;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
@@ -39,7 +39,7 @@ img {
 }
 .hero-text .show {
     text-decoration: none;
-    background: #7ca8d2;
+    background: #346da3;
     padding: 1rem 2rem;
     border-radius: 15px;
     font-size: 1.1rem;
@@ -90,6 +90,8 @@ img {
     .hero-text p {
         font-size: 1.1rem;
         padding: 0 0 2rem 0;
+        text-decoration: none;
+
     }
     .hero-text .show{
         padding: 0.6rem 1.1rem;

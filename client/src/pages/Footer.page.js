@@ -8,10 +8,10 @@ const Footer = () => {
                 <div className = "sb__footer-below">
                     <div className = "sb__footer-copyright">
                         <p>
-                            @{new Date().getFullYear()} Spòrs. All rights reserved.
+                            © Spòrs {new Date().getFullYear()}
                         </p>
                     </div>
-                    <div className="sb__footer-below-links">
+                    <div className = "sb__footer-below-links">
                         <a href="/ContactUs" ><div><p>Contact Us</p></div></a>
                         <a href="/Policy"><div><p>Terms and Conditions</p></div></a>
                     </div>
