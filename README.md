@@ -17,6 +17,7 @@ Spòrs is a web app used to find and organise sporting events.
 8. Start the server: 'npm start'
 9. In a new terminal window, navigate to the client directory: 'cd client'
 10. Start the client: 'npm start'
+
 The web app should now be running at http://localhost:3000. You can create sports events and join existing events as a user.
 
 
