@@ -37,3 +37,10 @@
     color: #1D1D1F;
     font-weight: 400;
 }
+
+@media screen and (max-width: 400px) {
+    .sb__footer-below-links p {
+        font-size: 12px;        
+    }
+
+}

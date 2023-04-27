@@ -9,7 +9,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    background-image: linear-gradient(rgba(0, 0, 0, 2.5), rgba(0, 0, 0, 0.5))
+    background-image: linear-gradient(rgba(4, 4, 4, 4), rgba(5, 5, 5, 5))
 }
 
 .hero-text {
@@ -127,4 +127,32 @@ img {
         font-size: 1rem;
     }
 
+}
+
+
+@media screen and (max-width: 430px) {
+    .hero-text {
+        position: absolute;
+        object-fit: cover;    
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -15%);
+        bottom: 2px;
+    }
+    .hero-text h1 {
+        padding: 20px 20px;
+        font-size: 1.5rem;
+    }
+    .hero-text p {
+        font-size: 14px;
+        padding: 0 0 2rem 0;
+        text-decoration: none;
+
+    }
+    .hero-text .show{
+        padding: 0.6rem 1.1rem;
+        border-width: 2px;
+        border-radius: 10px;
+        font-size: 1rem;
+    }
 }
