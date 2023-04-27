@@ -130,7 +130,7 @@ To extend the application, you can add new features or modify existing ones. Her
 
 Some best practices to keep in mind when extending the application:
 
-1. Keep the code modular and well-organized.
+1. Keep the code modular and well-organised.
 2. Follow established coding conventions to ensure consistency.
 3. Write unit tests for the new features to ensure they work as expected.
 4. Consider the impact of the changes on the overall application and make sure they are well-integrated.
