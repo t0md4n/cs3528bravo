@@ -38,7 +38,6 @@ import { UserContext } from "../contexts/user.context";
                 signedUp: 1,
                 creator: userId,
                 participants: [userId],
-                userEmail: userProfile.email
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8'
