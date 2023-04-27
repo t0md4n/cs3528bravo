@@ -57,7 +57,7 @@ const Events = () => {
   };
   
   return (
-    <Container style={{ paddingTop: '20px' }}>
+    <Container style={{ paddingTop: '20px', paddingBottom: '20px' }}>
       <div className="events-page">
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <h1 style={{ margin: "0" }}>Events</h1>

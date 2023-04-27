@@ -63,7 +63,7 @@ const MyEvents = () => {
   }, [userId]);
 
   return (
-    <Container style={{ paddingTop: '20px',display: "flex", flexDirection: "column", margin: "auto"}}>
+    <Container style={{ paddingTop: '20px', paddingBottom: '20px', display: "flex", flexDirection: "column", margin: "auto"}}>
       <div className="my-events-page">
         <h1>My Events</h1>
         <Link to="/events">
