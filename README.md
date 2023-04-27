@@ -1,5 +1,5 @@
 # Introduction
-Spòrs is a web app used to find and organise sporting events.
+Spòrs is a web app used to find and organise sporting events. The purpose of the web app is to facilitate the organisation and participation in sports events. By allowing users to create events and invite others to join, the app aims to bring together people who share an interest in sports and create a platform for them to connect, compete, and have fun. This app can also help people find and try new sports activities they may not have considered before. Additionally, the app can be useful for sports clubs or organisations that want to organise events for their members or for the public. Overall, the application serves as a tool to promote physical activity, community engagement, and healthy lifestyles. 
 
 ## Prerequisites
 - Node.js and npm installed on your machine
