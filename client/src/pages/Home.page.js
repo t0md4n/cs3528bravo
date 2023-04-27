@@ -31,14 +31,15 @@ export default function Home() {
    <>
     <Hero 
     cName="hero"
-    heroImg="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    heroImg="https://i.ibb.co/W3xZCVL/hero.jpg"
     title="Welcome to Spòrs"
     text="Want to view the current events?"
     buttonText="Events"
     url="./events"
     btnClass="show"
+    
     />
-    <Container style={{ paddingTop: '100px', paddingBottom: '300px' }}>
+    <Container style={{ paddingTop: '100px', paddingBottom: '150px' }}>
     
       <h1>You are currently logged in</h1>
       <Button style={{left: '50%', transform: 'translate(-50%, 50%)'}}variant="contained" onClick={logOut}>Logout</Button>

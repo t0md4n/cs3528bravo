@@ -1,5 +1,5 @@
 .footer{
-    background-color: #b6b6b6;
+    background-color: #F5F5F7;
     padding: 2rem 2rem;
     position: fixed;
     bottom: 0;
@@ -18,15 +18,15 @@
     flex-direction: row;
 }
 .sb__footer-below-links p{
-    font-size: 13px;
-    line-height: 15px;
+    font-size: 11px;
+    line-height: 10px;
     margin-left: 2rem;
-    color: white;
+    color: #1D1D1F;
     font-weight: 600;
 }
 .sb__footer-copyright{
-    font-size: 13px;
-    line-height: 15px;
-    color: white;
+    font-size: 11px;
+    line-height: 10px;
+    color: #1D1D1F;
     font-weight: 600;
 }
