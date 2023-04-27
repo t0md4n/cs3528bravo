@@ -2,17 +2,17 @@ import { createContext, useState } from "react";
 import { App, Credentials } from "realm-web";
 import { APP_ID } from "../realm/constants";
  
-// Creating a Realm App Instance
+// create our Realm App Instance
 const app = new App(APP_ID);
  
-// Creating a user context to manage and access all the user related functions
+// create a user context to manage and access all the user related functions
 // across different components and pages.
 export const UserContext = createContext();
  
 export const UserProvider = ({ children }) => {
  const [user, setUser] = useState(null);
  
- // Function to log in user into our App Service app using their email & password
+ // logs the user into our App Service app using their email & password
  const emailPasswordLogin = async (email, password) => {
    const credentials = Credentials.emailPassword(email, password);
    const authenticatedUser = await app.logIn(credentials);
@@ -20,11 +20,11 @@ export const UserProvider = ({ children }) => {
    return authenticatedUser;
  };
  
- // Function to sign up user into our App Service app using their email & password
+ // signs up the user into our App Service app using their email & password
  const emailPasswordSignup = async (email, password) => {
    try {
      await app.emailPasswordAuth.registerUser(email, password);
-     // Since we are automatically confirming our users, we are going to log in
+     // we are automatically confirming our users, we are going to log in
      // the user using the same credentials once the signup is complete.
      return emailPasswordLogin(email, password);
    } catch (error) {
@@ -32,7 +32,7 @@ export const UserProvider = ({ children }) => {
    }
  };
  
- // Function to fetch the user (if the user is already logged in) from local storage
+ // fetches the user (if the user is already logged in) from local storage
  const fetchUser = async () => {
    if (!app.currentUser) return false;
    try {
@@ -46,7 +46,7 @@ export const UserProvider = ({ children }) => {
    }
  }
  
- // Function to logout user from our App Services app
+ // logout user from our App Services app
  const logOutUser = async () => {
    if (!app.currentUser) return false;
    try {

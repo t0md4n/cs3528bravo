@@ -12,7 +12,8 @@ const Signup = () => {
  const [isValid, setIsValid] = useState(true);
  const [matching, setIsMatching] = useState(true);
  
- // As explained in the Login page.
+ // use React's "useState" hook to keep track
+ // of the form values
  const { emailPasswordSignup } = useContext(UserContext);
  const [form, setForm] = useState({
    email: "",
@@ -21,7 +22,7 @@ const Signup = () => {
    age: "",
  });
  
- // As explained in the Login page.
+ // will be called whenever the user edits the form.
  const onFormInputChange = (event) => {
    const { name, value } = event.target;
    setForm({ ...form, [name]: value });
@@ -60,14 +61,15 @@ const matchingPasswords = (event) =>{
     setIsMatching(true);
   }
 }
- 
- // As explained in the Login page.
+  
+ // redirects the user to the
+ // appropriate page once the authentication is done
  const redirectNow = () => {
    const redirectTo = location.search.replace("?redirectTo=", "");
    navigate(redirectTo ? redirectTo : "/");
  }
  
- // As explained in the Login page.
+ // called when the user clicks on the "Login" button.
  const onSubmit = async () => {
    try {
      const user = await emailPasswordSignup(form.email, form.password, form.confirmPass, form.age, form.location);
