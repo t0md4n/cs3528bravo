@@ -77,7 +77,7 @@ const Events = () => {
               <p>Time: {event.time}</p>
               <p>Signed up: {event.signedUp}</p>
               <p>Limit: {event.maxParticipants}</p>
-=              <Button variant="contained" color="primary" id={`event-button-${event._id}`} className="event-button" onClick={() => handleSignUp(event._id)}>Sign Up</Button>
+              <Button variant="contained" color="primary" id={`event-button-${event._id}`} className="event-button" onClick={() => handleSignUp(event._id)}>Sign Up</Button>
             </div>
           ))}
         </div>
