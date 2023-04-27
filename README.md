@@ -73,8 +73,70 @@ The dependencies are located within the package.json file for both the server an
 
 Note: The versions listed are the ones used during development, and newer versions may be available.
 
+## Deployed version details
+
+The deployed version of the web application can be found at the following URL: https://cs3528bravo.azurewebsites.net/
+
+To use the application, users can create an account by clicking on the "Sign Up" button and providing their details. Alternatively, users can log in using the following sample accounts:
+##### User account:
+- Email: user@test.com
+- Password: Test@1234
+
+Please note that these are sample accounts created for testing purposes only. It is recommended that users create their own accounts and use strong, unique passwords to protect their data.
+
 ## How to test the application 
 
-## How to deploy the application
+To test the application, you can follow the steps below:
+1. Clone the project repository from GitHub to your local machine.
+2. Install the required dependencies for the server and client applications by running the following commands in separate terminal windows:
+```
+cd server
+npm install
+
+cd ../client
+npm install
+```
+3. Start the server application by running the following command in the server directory:
+```
+npm start
+```
+4. Start the client application by running the following command in the client directory:
+```
+npm start
+```
+5. The client application will open in your default web browser at http://localhost:3000/. You can now create sports events and join those events.
+6. To run tests, you can use the following commands:
+```
+cd server
+npm run test
+
+cd ../client
+npm run test
+```
+
+These commands will run the server and client tests respectively, using the test data and scripts provided in the test directories of each application.
+
+By following these steps, you can test the functionality of the web application and ensure that it is working as expected.
+
 
 ## How to extend the application
+To extend the application, you can add new features or modify existing ones. Here are the general steps to follow:
+1. Identify the feature you want to add or modify and determine the requirements.
+2. Create a new branch in the Git repository to work on the feature.
+3. Make the necessary changes to the code to implement the new feature or modify existing code to reflect the changes.
+4. Test the new feature thoroughly to ensure it works as intended and does not break existing functionality.
+5. Once you are satisfied with the changes, merge the branch back into the main branch.
+6. Update the documentation as needed to reflect the changes.
+
+Some best practices to keep in mind when extending the application:
+
+1. Keep the code modular and well-organized.
+2. Follow established coding conventions to ensure consistency.
+3. Write unit tests for the new features to ensure they work as expected.
+4. Consider the impact of the changes on the overall application and make sure they are well-integrated.
+5. Solicit feedback from other developers and users to ensure the changes are valuable and useful.
+
+
+
+
+
