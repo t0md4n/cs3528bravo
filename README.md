@@ -1,8 +1,24 @@
 # Introduction
 Spòrs is a web app used to find and organise sporting events.
 
-## How to install and run the project
-Clone the repo and open a terminal window in the root folder and enter the commands below to install the required dependencies.
+## Prerequisites
+- Node.js and npm installed on your machine
+
+## Installation
+1. Clone the repository from GitHub: 'https://github.com/thomaswdaniel/cs3528bravo.git'
+2. Navigate to the project directory: 'cs3528bravo'
+3. Install server dependencies: 'npm install'
+4. Navigate to the client directory: 'cd client'
+5. Install client dependencies: 'npm install'
+6. Navigate back to the project directory: 'cd ..'
+7. Create a .env file in the project directory with the following contents:
+  PORT=5000
+  MONGODB_URI=mongodb+srv://Cluster34479:UWFtRFtGX090@cluster34479.1jsddom.mongodb.net/cs3528
+8. Start the server: 'npm start'
+9. In a new terminal window, navigate to the client directory: 'cd client'
+10. Start the client: 'npm start'
+The web app should now be running at http://localhost:3000. You can create sports events and join existing events as a user.
+
 
 ```
 npm install
