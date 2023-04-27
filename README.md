@@ -21,18 +21,6 @@ Spòrs is a web app used to find and organise sporting events.
 The web app should now be running at http://localhost:3000. You can create sports events and join existing events as a user.
 
 
-```
-npm install
-npm server
-```
-
-Then navigate to the client folder and enter the commands below to install the required dependencies and start the application:
-
-```
-npm install
-npm start
-```
-
 ## Dependencies
 The dependencies are located within the package.json file for both the server and the client. 
 
