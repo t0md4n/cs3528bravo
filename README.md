@@ -32,8 +32,9 @@ cd ..
 ```
 node server
 ```
-7. In a new terminal window, navigate to the client directory and start the client:
+7. In a new terminal window, navigate to the projects client directory and start the client:
 ```
+cd cs3528bravo
 cd client
 npm start
 ```
@@ -97,7 +98,10 @@ Note: The versions listed are the ones used during development, and newer versio
 
 ## Deployed version details
 
-The deployed version of the web application can be found at the following URL: https://cs3528bravo.azurewebsites.net/
+The deployed version of the web application can be found at the following URL:
+```
+https://cs3528bravo.azurewebsites.net/
+```
 
 To use the application, users can create an account by clicking on the "Sign Up" button and providing their details. Alternatively, users can log in using the following sample accounts:
 ##### User account:
