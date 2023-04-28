@@ -54,7 +54,7 @@ export default function Help() {
 				
 				<p>	<b>How to access your joined events:</b> Once you make an event or sign up to an event
 					you can access it in the My Events section. This is split into two sections, the Events
-					Created section and the Signed Up For section. Under Events Created you can track how manyusers have signed up to your event,
+					Created section and the Signed Up For section. Under Events Created you can track how many users have signed up to your event,
 					you also have the option to cancel the event altogether. Once you have made an event you as the creator are automatically signed up to the
 					event so it will also appear under the signed up for section along with the events you have signed up to made by other users, there is a
 					clear leave button which will take you out of that event. If you have removed yourself from an event it will leave the My Event section and
