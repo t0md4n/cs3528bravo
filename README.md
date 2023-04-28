@@ -125,9 +125,9 @@ By following these steps, you can test the functionality of the web application 
 To deploy the application, you can use any hosting solution that suppports web applications. Here are the general steps to follow for Microsoft Azure:
 
 ### Prerequisites
-1. An Azure account with an active subscription.
-2. Visual Studio Code.
-3. Azure App Service extension for Visual Studio Code.
+- An Azure account with an active subscription.
+- Visual Studio Code.
+- Azure App Service extension for Visual Studio Code.
 
 ### Steps
 1. Open the project folder in Visual Studio Code.
@@ -142,6 +142,12 @@ To deploy the application, you can use any hosting solution that suppports web a
 4. Select the suitable pricing tier and wait for the resources to be created in Azure.
 5. In the popup "Always deploy the workspace...", select Yes. This way, Visual Studio Code will deploy to the same App Service app each time.
 6. Once the deployment is complete, select Browse Website in the notication popup. You should now see the home page.
+
+### Redploy updates
+1. Make changes to the project
+2. In the App Service tab, select the Deploy to Web App icon, then click Deploy again.
+3. Wait for the deployment to complete, visit the site again and your changes will be shown.
+
 
 ## How to extend the application
 To extend the application, you can add new features or modify existing ones. Here are the general steps to follow:
