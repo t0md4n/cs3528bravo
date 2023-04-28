@@ -113,13 +113,13 @@ To test the application, you can follow the steps below:
 1. Clone the project repository from GitHub to your local machine.
 2. Install the required dependencies for the server and client applications by running the following commands in separate terminal windows:
 ```
-cd server
+cd cs3528bravo
 npm install
 
-cd ../client
+cd client
 npm install
 ```
-3. Start the server application by running the following command in the server directory:
+3. Start the server application by running the following command in the root directory:
 ```
 node server
 ```
