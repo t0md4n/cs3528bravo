@@ -7,7 +7,12 @@ Spòrs is a web app used to find and organise sporting events. The purpose of th
 ## Installation
 1. Clone the repository from GitHub: 'https://github.com/thomaswdaniel/cs3528bravo.git'
 2. Navigate to the project directory: 'cs3528bravo'
-3. Install server dependencies: 'npm install'
+3. Install server dependencies: 
+
+'''npm install
+cd client
+cd ..
+'''
 4. Navigate to the client directory: 'cd client'
 5. Install client dependencies: 'npm install'
 6. Navigate back to the project directory: 'cd ..'
