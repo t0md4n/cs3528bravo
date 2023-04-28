@@ -12,8 +12,8 @@ const Footer = () => {
                         </p>
                     </div>
                     <div className = "sb__footer-below-links">
-                        <a href="/ContactUs" ><div><p>Contact Us</p></div></a>
-                        <a href="/Policy"><div><p>Terms and Conditions</p></div></a>
+                        <a href="/" ><div><p>Contact Us</p></div></a>
+                        <a href="/"><div><p>Terms and Conditions</p></div></a>
                     </div>
                 </div>
             </div>
