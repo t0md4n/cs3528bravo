@@ -98,7 +98,7 @@ Note: The versions listed are the ones used during development, and newer versio
 
 ## Deployed version details
 
-The deployed version of the web application can be found [here](https://cs3528bravo.azurewebsites.net/)
+The deployed version of the web application can be found [here](https://cs3528.azurewebsites.net/)
 
 To use the application, users can create an account by clicking on the "Sign Up" button and providing their details. Alternatively, users can log in using the following sample accounts:
 ##### User account:
