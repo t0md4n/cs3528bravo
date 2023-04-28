@@ -14,7 +14,7 @@ Spòrs is a web app used to find and organise sporting events. The purpose of th
 7. Create a .env file in the project directory with the following contents:
   PORT=5000
   MONGODB_URI=mongodb+srv://Cluster34479:UWFtRFtGX090@cluster34479.1jsddom.mongodb.net/cs3528
-8. Start the server: 'npm start'
+8. Start the server: 'node server'
 9. In a new terminal window, navigate to the client directory: 'cd client'
 10. Start the client: 'npm start'
 
@@ -98,7 +98,7 @@ npm install
 ```
 3. Start the server application by running the following command in the server directory:
 ```
-npm start
+node server
 ```
 4. Start the client application by running the following command in the client directory:
 ```
@@ -108,10 +108,10 @@ npm start
 6. To run tests, you can use the following commands:
 ```
 cd server
-npm run test
+npm test
 
 cd ../client
-npm run test
+npm test
 ```
 
 These commands will run the server and client tests respectively, using the test data and scripts provided in the test directories of each application.
