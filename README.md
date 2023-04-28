@@ -55,9 +55,6 @@ The dependencies are located within the package.json file for both the server an
 - @emotion/react@11.10.6
 - @emotion/styled@11.10.6
 - @mui/material@5.11.10
-- @testing-library/jest-dom@4.2.4
-- @testing-library/react@9.3.2
-- @testing-library/user-event@7.1.2
 - ajv@8.12.0
 - axios@1.3.1
 - babel-core@6.26.3
@@ -70,6 +67,12 @@ The dependencies are located within the package.json file for both the server an
 - react-scripts@5.0.1
 - realm-web@1.5.1
 - typescript@4.9.5
+#### Dev Dependencies:
+- @babel/core@7.20.12
+- @babel/preset-env@7.20.2
+- @testing-library/jest-dom@4.2.4
+- @testing-library/react@9.3.2
+- @testing-library/user-event@7.1.2
 
 Note: The versions listed are the ones used during development, and newer versions may be available.
 
@@ -118,6 +121,27 @@ These commands will run the server and client tests respectively, using the test
 
 By following these steps, you can test the functionality of the web application and ensure that it is working as expected.
 
+## How to deploy the application
+To deploy the application, you can use any hosting solution that suppports web applications. Here are the general steps to follow for Microsoft Azure:
+
+### Prerequisites
+1. An Azure account with an active subscription.
+2. Visual Studio Code.
+3. Azure App Service extension for Visual Studio Code.
+
+### Steps
+1. Open the project folder in Visual Studio Code.
+2. In Visual Studio Code, in the Activity Bar, select the Azure logo.
+3. In the App Service tab, select Sign in to Azure and follow the instructions.
+4. In Visual Studio Code, you should see all your details in the App Service tab.
+
+### Configure the App Service app and deploy the project
+1. Select the folder in Visual Studio Code
+2. Enter a globally unique name.
+3. Select a runtime stack, use Node 16 LTS for optimal functionality of this project.
+4. Select the suitable pricing tier and wait for the resources to be created in Azure.
+5. In the popup "Always deploy the workspace...", select Yes. This way, Visual Studio Code will deploy to the same App Service app each time.
+6. Once the deployment is complete, select Browse Website in the notication popup. You should now see the home page.
 
 ## How to extend the application
 To extend the application, you can add new features or modify existing ones. Here are the general steps to follow:
