@@ -19,6 +19,8 @@ import Events from "./pages/Events.page";
 import CreateEvent from "./pages/CreateEvent.page";
 import MyEvents from "./pages/MyEvents.page";
 import Footer from "./pages/Footer.page";
+import Help from "./pages/Help.page";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
         <Routes>
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/help" element={<Help />} />
           {/* We are protecting the create event and event page from unauthenticated */}
           {/* users by wrapping it with PrivateRoute here. */}
           <Route element={<PrivateRoute />}>
