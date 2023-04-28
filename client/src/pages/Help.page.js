@@ -28,7 +28,7 @@ export default function Help() {
 		<>
 			<Container style={{ paddingTop: '50px', paddingBottom: '100px' }}>
 
-				<h1>User manual</h1>
+				<h1>User Manual</h1>
 				
 				<p> <b>How to sign up:</b> Go to the sign up page. When signing up you must enter a unique password with
 					a special character, numerics and a capital letter. If the email is already in use you must use another one.
